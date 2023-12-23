@@ -1,0 +1,17 @@
+what is html ?
+
+html stands for hyper text markup language
+
+https://www.w3schools.com/html/
+
+you need to enable extension
+
+
+
+self close tag = <img />
+
+
+there are two types of elements
+
+inline-block element (me line break nai karunga)
+block element (me line break karunga)
