@@ -4,7 +4,7 @@ html stands for hyper text markup language
 
 https://www.w3schools.com/html/
 
-you need to enable extension
+you need to enable extension windows
 
 
 

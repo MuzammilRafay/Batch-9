@@ -1,0 +1,11 @@
+Cascading Style Sheets = css
+we will use id attribute
+we will use class attribute for multiple elements
+
+# = id
+. = class
+
+we will use id for specific element.
+we will use class for multiple elements.
+
+div is like a box (and it is used for structuring the layout)
