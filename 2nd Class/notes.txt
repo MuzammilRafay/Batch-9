@@ -1,5 +1,5 @@
 Cascading Style Sheets = css
-we will use id attribute
+we will use id attribute for unique element
 we will use class attribute for multiple elements
 
 # = id
