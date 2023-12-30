@@ -27,3 +27,14 @@ padding = padding element ke andar se space deta hai
 https://www.w3schools.com/howto/howto_css_clearfix.asp
 
 
+
+
+jab ap float use karien to usme spacing ka issue ata hai aagar app usk niche footer ki div lein to wo usk piche ari hogi
+
+jis element par apne float lagaya hai usko ek or div k andar kardien
+
+or us div me clearfix ki class lagadien
+
+or css clearfix ki copy paste karli phr piche jo jari ti footer ki div wo sahi hojaegi
+
+
