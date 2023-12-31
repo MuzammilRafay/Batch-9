@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>3rd Class</title>
+<style>
+body{
+ margin:0px;
+}
+#header{
+ background-color:gray;
+ height:100px;
+ color:white;
+ font-size:44px;
+ text-align:center;
+ margin-bottom:10px;
+ padding-top:20px;
+ border:1px solid red;
+}
+#menu{
+ background-color:black;
+ color:red;
+ height:100px;
+ font-size:44px;
+ text-align:center;
+ margin-bottom:10px;
+ padding-top:20px;
+}
+#left-side{
+ background-color:yellow;
+ color:red;
+ font-size:44px;
+ text-align:center;
+ height:250px;
+ width:80%;
+ float:left;
+ padding-top:20px;
+}
+#right-side{
+ background-color:orange;
+ color:red;
+ font-size:44px;
+ height:250px;
+ width:19%;
+ float:right;
+ padding-top:20px;
+}
+#footer{
+ background-color:green;
+ color:white;
+ font-size:44px;
+ margin-top:10px;
+ height:100px;
+ text-align:center;
+ padding-top:20px;
+}
+.clearfix::after{
+ content:"";
+ display:table;
+ clear:both;
+}
+</style>
+
+</head>
+<body>
+<div id="header">Header</div>
+<div id="menu">Menu</div>
+
+<div class="clearfix">
+<div id="left-side">Left Side</div>
+<div id="right-side">Right Side</div>
+</div>
+
+<div id="footer">Footer</div>
+
+</body>
+</html>
