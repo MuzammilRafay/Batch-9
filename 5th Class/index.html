@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>5th Class</title>
+<style>
+*{
+ font-family: 'Trebuchet MS';	
+}
+body{
+ margin: 0px;
+}
+.clearfix::after{
+ content:"";
+ display:table;
+ clear:both;
+}
+#header{
+ background-color:#e7e7e7;
+ padding-left:100px;
+ padding-right:100px;
+ height:80px;
+ border:1px solid black;
+}
+#logo{
+ width:20%;
+ float:left;
+ padding-top:20px;
+ border:1px solid black;
+}
+#menu{
+ width:60%;
+ float:right;
+ padding-top:12px;
+border:1px solid black;
+}
+#menu ul{
+ float:right;
+}
+#menu ul li{
+ float:left;
+ list-style-type:none;
+ margin-right:20px;
+ font-weight:600;
+ font-size:18px;
+ color: #504f4e;
+}
+#main-image img{
+ width:100%;
+}
+</style>
+</head>
+<body>
+<div id="header" class="clearfix">
+   <div id="logo">
+     <img src="./assets/images/logo.png" alt="Logo" />
+   </div>
+   <div id="menu" class="clearfix">
+      <ul class="clearfix">
+        <li>Home</li>
+        <li>About</li>
+        <li>Journal</li>
+        <li>Services</li>
+        <li>Features</li>
+        <li>Contact us</li>
+      </ul>
+   </div>
+</div>
+<div id="main-image">
+  <img src="./assets/images/background-image.png" alt="Main Image" />
+</div>
+
+</body>
+</html>
