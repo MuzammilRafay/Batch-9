@@ -1,0 +1,8 @@
+https://www.w3schools.com/html/html_responsive.asp
+
+
+Setting The Viewport
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+Media Queries

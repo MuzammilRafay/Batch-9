@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
    <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>5th Class</title>
       <style>
          *{
@@ -42,6 +43,10 @@
          font-weight:600;
          font-size:18px;
          color: #504f4e;
+         }
+	#menu ul li:hover{
+          color: white;
+          cursor:pointer;
          }
          #main-image img{
          width:100%;
@@ -114,31 +119,71 @@
          color:#bcc2ca;
          }
          #footer{
-            background-color:#1f1f1f;
-            color:#cacaca;
-            padding-left:100px;
-            padding-right:100px;
-            padding-bottom:100px;
-            padding-top:50px;
+         background-color:#1f1f1f;
+         color:#cacaca;
+         padding-left:100px;
+         padding-right:100px;
+         padding-bottom:100px;
+         padding-top:50px;
          }
          .footer-items{
-           width:23%;
-           margin-right:2%;
-           float:left;
+         width:23%;
+         margin-right:2.6%;
+         float:left;
          }
-.footer-items h4{
-color:#6c6c6c;
-font-size:20px;
-margin-bottom:20px;
-}
-.footer-items p{
-margin-bottom:20px;
-}
-#sub-footer-container{
-border-bottom:2px solid #353535;
-padding-bottom:50px;
-margin-bottom:20px;
-}
+         .footer-items h4{
+         color:#6c6c6c;
+         font-size:20px;
+         margin-bottom:20px;
+         }
+         .footer-items p{
+         margin-bottom:20px;
+         }
+         #sub-footer-container{
+         border-bottom:2px solid #353535;
+         padding-bottom:50px;
+         margin-bottom:20px;
+         }
+         .footer-items:last-child{
+         margin-right:0px;
+         } 
+         #footer-twitter-item p{
+         position:relative;
+         }
+         #footer-twitter-item p img{
+         position: absolute;
+         left: -18px;
+         top: 4px;
+         }
+         @media(max-width:1140px){
+         #menu ul li{
+         float:none;
+         }
+         #header{
+         height:auto;
+         }
+         #logo{
+         float:none;
+         width:100%;
+         text-align:center;
+         }
+         #menu{
+         float:none;
+         width:100%;
+         text-align:center;
+         }
+         #menu ul{
+         float:none;
+         }
+         #menu ul li{
+         margin-bottom:20px;
+         }
+         }
+         @media(max-width:800px){
+         body{
+         background-color:red;
+         }
+         }
       </style>
    </head>
    <body>
@@ -224,13 +269,14 @@ margin-bottom:20px;
                   support@longwave.com
                </p>
             </div>
-            <div class="footer-items">
+            <div class="footer-items" id="footer-twitter-item">
                <h4>Twitter</h4>
                <p>
+                  <img src="./assets/images/tweet.png" />
                   Aenean lacinia bibendum nulla sed leo posuere erat a ante venenatis dapibus posuere velit aliquet.
                </p>
-               <p> Donec ullamcorper metus auctor fringilla. Nullam quis risus eget.</p>
-               <p>  Vestibulum id ligula porta euismod semper. Maecenas faucibus mollis.</p>
+               <p> 		<img src="./assets/images/tweet.png" />Donec ullamcorper metus auctor fringilla. Nullam quis risus eget.</p>
+               <p>  		<img src="./assets/images/tweet.png" />Vestibulum id ligula porta euismod semper. Maecenas faucibus mollis.</p>
             </div>
             <div class="footer-items">
                <h4>Popular Posts</h4>
@@ -244,8 +290,7 @@ margin-bottom:20px;
                <p>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus curabitur blandit tempus.</p>
             </div>
          </div>
-
-<p>&copy; 2022 Marble. All Right reserved. Theme by elemis.</p>
+         <p>&copy; 2022 Marble. All Right reserved. Theme by elemis.</p>
       </div>
    </body>
 </html>
