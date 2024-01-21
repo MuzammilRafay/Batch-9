@@ -72,7 +72,7 @@
         width: 30%;
         float: left;
         text-align: center;
-        margin-right: 5%;
+        margin-right: 3.7%;
       }
       .services-items:last-child {
         margin-right: 0px;
@@ -104,6 +104,43 @@
         left: 38%;
         top: -20px;
         font-weight: 600;
+      }
+      #first-child-of-review {
+        float: left;
+        width: 20%;
+      }
+      #second-child-of-review {
+        float: right;
+        width: 60%;
+        color: #888888;
+        font-style: italic;
+      }
+      #second-child-of-review img {
+        margin-bottom: 25px;
+      }
+      #reviews {
+        margin-bottom: 40px;
+      }
+      #footer-first-item {
+        float: left;
+        width: 70%;
+      }
+      #footer-second-item {
+        float: right;
+        width: 30%;
+      }
+      footer {
+        margin-top: 60px;
+      }
+      .contact-info {
+        position: relative;
+        margin-bottom: 10px;
+      }
+      .contact-info span {
+        position: absolute;
+        top: 7px;
+        left: 45px;
+        color: #888888;
       }
     </style>
   </head>
@@ -183,10 +220,51 @@
         <br />
         <br />
 
+        <div id="reviews" class="clearfix">
+          <div id="first-child-of-review">
+            <img src="./assets/images/head.png" />
+          </div>
+          <div id="second-child-of-review">
+            <img src="./assets/images/quote.png" />
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta,
+              ratione dolores similique voluptas explicabo quas nisi, officiis
+              eius quo nemo magni facilis
+            </p>
+          </div>
+        </div>
+
         <div class="line-container">
           <hr />
           <button>DROP US A LINE</button>
         </div>
+
+        <footer class="clearfix">
+          <div id="footer-first-item">
+            <div class="contact-info">
+              <img src="./assets/images/call.png" />
+              <span>555 555 5555</span>
+            </div>
+
+            <div class="contact-info">
+              <img src="./assets/images/email.png" />
+              <span>hello@whatever.com</span>
+            </div>
+
+            <div class="contact-info">
+              <img src="./assets/images/map-icon.png" />
+              <span>Leaf Studios Times Square NY</span>
+            </div>
+
+            <br />
+            <br />
+            <br />
+            <img src="./assets/images/logo-sprite.png" />
+          </div>
+          <div id="footer-second-item">
+            <img src="./assets/images/map.png" />
+          </div>
+        </footer>
       </div>
     </section>
   </body>
