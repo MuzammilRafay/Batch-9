@@ -9,8 +9,11 @@
         margin: 0px;
         font-family: Arial, Helvetica, sans-serif;
       }
-      .clearfix {
-        overflow: auto;
+      .clearfix::after {
+        /* overflow: auto; */
+        clear: both;
+        display: table;
+        content: "";
       }
       header {
         background-color: #151515;
@@ -141,6 +144,75 @@
         top: 7px;
         left: 45px;
         color: #888888;
+      }
+
+      @media (max-width: 1230px) {
+        header {
+          padding-bottom: 20px;
+        }
+        #logo {
+          width: 100%;
+          float: none;
+          text-align: center;
+        }
+        nav {
+          float: none;
+          width: 100%;
+          text-align: center;
+        }
+        nav ul li {
+          float: none;
+        }
+        .services-items {
+          float: none;
+          width: 100%;
+          margin-right: 0px;
+          margin-bottom: 60px;
+        }
+      }
+
+      @media (max-width: 900px) {
+        #bg-image-section {
+          height: 450px;
+          background-size: cover;
+        }
+        #second-child-of-review,
+        #first-child-of-review {
+          float: none;
+          width: 100%;
+          text-align: center;
+        }
+        #second-child-of-review {
+          padding-top: 20px;
+        }
+
+        /* #first-child-of-review {
+          float: none;
+          width: 100%;
+          text-align: center;
+        } */
+        #first-child-of-review img {
+          width: 80%;
+        }
+
+        #footer-first-item {
+          float: none;
+          width: 100%;
+
+          padding-left: 160px;
+        }
+        #footer-second-item {
+          float: none;
+          width: 100%;
+          text-align: center;
+          margin-top: 40px;
+        }
+        #footer-second-item img {
+          width: 60%;
+        }
+        .line-container button {
+          left: 28%;
+        }
       }
     </style>
   </head>
