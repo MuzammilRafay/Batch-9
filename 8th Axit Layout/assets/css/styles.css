@@ -2,6 +2,9 @@
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
+body{
+    padding-bottom: 100px;
+}
 header{
     background-color: black;
     padding: 20px 0px;
@@ -31,10 +34,10 @@ header{
 }
 
 #introduction-background-section{
+    height: 500px;
     background-image: url("../images/image.png");
     background-repeat: no-repeat;
     background-size: cover;
-    height: 500px;
     background-position: center;
     display: flex;
     align-items: center;
@@ -74,4 +77,24 @@ header{
 }
 #introduction-first-section button:hover{
     cursor: pointer;
+}
+#social-section{
+    border-bottom: 1px solid #b7b7b7;
+}
+#sub-social-section{
+    display:flex;
+    justify-content: space-between;
+    padding: 20px 0px;
+}
+#sub-social-section p{
+ color: #a7a7a7;
+ margin-top: 10px;
+}
+#sub-social-section-second-item{
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+}
+#sub-social-section-second-item img{
+    width: 100%;
 }
