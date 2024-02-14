@@ -283,3 +283,99 @@ header{
 #sub-list-section-two{
     flex-direction: row-reverse;
 }
+
+#awesome-main-container{
+    margin-top: 100px;
+}
+.common-heading{
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+}
+.common-divider{
+    width: 7%;
+    margin: 20px auto;
+    height: 2px;
+    background-color: var(--secondary-color);
+    border: none;
+}
+.common-paragraph{
+    text-align: center;
+    color: var(--paragraph-color);
+}
+#awesome-info{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    text-align: center;
+}
+.awesome-items h3{
+    margin: 20px 0px;
+}
+.awesome-items p{
+    color: var(--paragraph-color);
+}
+#price-main-container{
+    padding: 100px 0px;
+    margin-top: 100px;
+    background-color: var(--background-color-one);
+}
+#packages-container{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 70px;
+    align-items: flex-end;
+}
+
+.package-header{
+    background-color: var(--heading-color);
+    color: var(--white);
+    text-align: center;
+    padding: 15px 0px;
+    border-bottom: 1px solid var(--white);
+}
+.package-body{
+    background-color: var(--heading-color);
+    color: var(--white);
+    text-align: center;
+    padding: 20px 0px;
+}
+.package-body h2{
+    font-size: 55px;
+}
+.package-body h2 span{
+    font-size: 30px;
+}
+.package-body p{
+    color: var(--paragraph-color);
+    font-style: italic;
+    font-size: 14px;
+    margin-top: 10px;
+}
+.package-item{
+    flex-basis: 30%;
+}
+.package-divider-one{
+    background-color: var(--secondary-color);
+    height: 6px;
+}
+.package-divider{
+    background-color: var(--secondary-color);
+    /* height: 6px; */
+    color: var(--white);
+    text-align: center;
+}
+.package-divider{
+    padding: 5px 0px;
+}
+.package-footer{
+    background-color: var(--white);
+    color: var(--paragraph-color);
+    text-align: center;
+}
+.package-footer-items{
+    padding: 10px 0px;
+    border-bottom: 1px solid var(--background-color-one);
+}
