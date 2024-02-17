@@ -379,3 +379,59 @@ header{
     padding: 10px 0px;
     border-bottom: 1px solid var(--background-color-one);
 }
+
+#customers-saying-section{
+    padding-top: 100px;
+}
+
+#cutomer-review-container{
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+}
+.customer-review-content{
+    background-color: var(--background-color-one);
+    color: var(--paragraph-color);
+    font-style: italic;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+}
+.customer-review-content img{
+    position: absolute;
+    bottom: -15px;
+    left: 21px;
+}
+.customer-info{
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.customer-description p{
+    color: var(--paragraph-color);
+}
+
+#stylish-axure-design-section{
+    margin-top: 50px;
+    background-image: url("../images/u25_state0.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+#stylish-axure-design-section .common-heading{
+    color: var(--white);
+}
+#stylish-axure-design-section .common-divider{
+    background-color: var(--white)
+}
+#stylish-axure-design-section button{
+    background-color: transparent;
+    padding: 10px 25px;
+    border: 2px solid var(--white);
+    margin-top: 25px;
+    color: var(--white);
+}
