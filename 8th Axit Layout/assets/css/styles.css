@@ -23,7 +23,7 @@ paragraph-color: #838383;
 } */
 header{
     background-color: var(--black);
-    padding: 20px 0px;
+    padding: 1.25rem 0rem;
 }
 .container{
     width: 80%;
@@ -68,29 +68,29 @@ header{
     flex-basis: 45%;
 }
 #introduction-first-section img{
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 }
 #introduction-first-section h2{
-    font-size: 30px;
+    font-size: 1.875rem;
     font-weight: 100;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 }
 #introduction-first-section hr{
     width: 15%;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
     height: 2px;
     background-color: var(--white);
 }
 #introduction-first-section p{
-    margin-bottom: 25px;
+    margin-bottom: 1.563rem;
     color: var(--paragraph-color);
 }
 #introduction-first-section button{
     background-color: transparent;
     color: var(--white);
     border: 2px solid var(--white);
-    padding: 8px 20px;
-    font-size: 14px;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
 }
 #introduction-first-section button:hover{
     cursor: pointer;
@@ -101,11 +101,11 @@ header{
 #sub-social-section{
     display:flex;
     justify-content: space-between;
-    padding: 20px 0px;
+    padding: 1.25rem 0rem;
 }
 #sub-social-section p{
  color: var(--paragraph-color);
- margin-top: 10px;
+ margin-top: 0.625rem;
 }
 #sub-social-section-second-item{
     flex-basis: 50%;
@@ -121,7 +121,7 @@ header{
 #form-header{
     background-color: var(--background-color-one);
     color: var(--heading-color);
-    padding: 15px 0px;
+    padding: 0.938rem 0rem;
     text-align: center;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
@@ -130,20 +130,20 @@ header{
     color: var(--secondary-color);
 }
 #form-header h3{
-    font-size: 20px;
+    font-size: 1.25rem;
 }
 #form-body{
     background-color: var(--white);
     display: flex;
     flex-direction: column;
-    padding: 40px 35px;
+    padding: 2.5rem 2.188rem;
 }
 #form-body input:last-child{
-    margin-bottom: 0px;
+    margin-bottom: 0rem;
 }
 .common-input-field{
-    padding: 5px 10px;
-    margin-bottom: 35px;
+    padding: 5px 0.625rem;
+    margin-bottom: 2.188rem;
     border: none;
     border-bottom: 1px solid var(--input-text-color);
 }
@@ -167,8 +167,8 @@ header{
     background-color: var(--secondary-color);
     color: var(--white);
     width: 100%;
-    padding: 20px 0px;
-    font-size: 17px;
+    padding: 1.25rem 0rem;
+    font-size: 1.063rem;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
 }
@@ -177,7 +177,7 @@ header{
 }
 #main-tab-content{
     background-color: var(--background-color-one);
-    padding: 80px 0px; 
+    padding: 5rem 0rem; 
 }
 #sub-tab-content{
     display: flex;
@@ -191,7 +191,7 @@ header{
     flex-basis: 25%;
 }
 .common-tabs{
-    padding: 40px 30px;
+    padding: 2.5rem 1.875rem;
     text-align: center;
     color: var(--white);
     background-color: var(--heading-color);
@@ -212,19 +212,19 @@ header{
     background-color: var(--secondary-color);
 }
 #tab-information h3{
-    margin-bottom: 50px;
+    margin-bottom: 3.125rem;
 }
 #tab-information p{
     color: var(--paragraph-color);
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 }
 #tab-information button{
     background-color: var(--secondary-color);
     border: none;
     color: var(--white);
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem;
     border-radius: 5px;
-    margin-top: 25px;
+    margin-top: 1.563rem;
 }
 #tab-information button:hover{
     cursor: pointer;
@@ -233,7 +233,7 @@ header{
     align-self: center;
 }
 .sub-list-section{
-    padding: 80px 0px;
+    padding: 5rem 0rem;
 }
 .sub-list-section-child{
     display: flex;
@@ -246,29 +246,29 @@ header{
 }
 
 .sub-list-section-child-first-div h3{
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 }
 .sub-list-section-child-first-div hr{
     border: none;
     height: 2px ;
     background-color: var(--secondary-color);
     width: 15%;
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
 }
 .sub-list-section-child-first-div p{
     color: var(--paragraph-color);
 }
 .sub-list-information{
-    margin-top: 40px;
+    margin-top: 2.5rem;
     display: flex;
     justify-content: space-between;
-    gap:20px
+    gap:20px;
 }
 .sub-list-information i{
     color: var(--secondary-color);
-    font-size: 16px;
+    font-size: 1rem;
     border:2px solid var(--secondary-color);
-    padding: 12px 10px;
+    padding: 0.75rem 0.625rem;
     border-radius: 50%;
 }
 .sub-list-section-child-img-div{
@@ -285,16 +285,16 @@ header{
 }
 
 #awesome-main-container{
-    margin-top: 100px;
+    margin-top: 6.25rem;
 }
 .common-heading{
     text-align: center;
-    font-size: 30px;
+    font-size: 1.875rem;
     font-weight: 400;
 }
 .common-divider{
     width: 7%;
-    margin: 20px auto;
+    margin: 1.25rem auto;
     height: 2px;
     background-color: var(--secondary-color);
     border: none;
@@ -304,28 +304,28 @@ header{
     color: var(--paragraph-color);
 }
 #awesome-info{
-    margin-top: 50px;
+    margin-top: 3.125rem;
     display: flex;
     justify-content: space-between;
     gap: 20px;
     text-align: center;
 }
 .awesome-items h3{
-    margin: 20px 0px;
+    margin: 1.25rem 0rem;
 }
 .awesome-items p{
     color: var(--paragraph-color);
 }
 #price-main-container{
-    padding: 100px 0px;
-    margin-top: 100px;
+    padding: 6.25rem 0rem;
+    margin-top: 6.25rem;
     background-color: var(--background-color-one);
 }
 #packages-container{
     display: flex;
     justify-content: space-between;
     gap: 10px;
-    margin-top: 70px;
+    margin-top: 4.375rem;
     align-items: flex-end;
 }
 
@@ -333,26 +333,26 @@ header{
     background-color: var(--heading-color);
     color: var(--white);
     text-align: center;
-    padding: 15px 0px;
+    padding: 0.938rem 0rem;
     border-bottom: 1px solid var(--white);
 }
 .package-body{
     background-color: var(--heading-color);
     color: var(--white);
     text-align: center;
-    padding: 20px 0px;
+    padding: 1.25rem 0rem;
 }
 .package-body h2{
-    font-size: 55px;
+    font-size: 3.438rem;
 }
 .package-body h2 span{
-    font-size: 30px;
+    font-size: 1.875rem;
 }
 .package-body p{
     color: var(--paragraph-color);
     font-style: italic;
-    font-size: 14px;
-    margin-top: 10px;
+    font-size: 0.875rem;
+    margin-top: 0.625rem;
 }
 .package-item{
     flex-basis: 30%;
@@ -368,7 +368,7 @@ header{
     text-align: center;
 }
 .package-divider{
-    padding: 5px 0px;
+    padding: 0.313rem 0rem;
 }
 .package-footer{
     background-color: var(--white);
@@ -376,16 +376,16 @@ header{
     text-align: center;
 }
 .package-footer-items{
-    padding: 10px 0px;
+    padding: 0.625rem 0rem;
     border-bottom: 1px solid var(--background-color-one);
 }
 
 #customers-saying-section{
-    padding-top: 100px;
+    padding-top: 6.25rem;
 }
 
 #cutomer-review-container{
-    margin-top: 40px;
+    margin-top: 2.5rem;
     display: flex;
     justify-content: space-between;
     gap: 60px;
@@ -394,8 +394,8 @@ header{
     background-color: var(--background-color-one);
     color: var(--paragraph-color);
     font-style: italic;
-    padding: 20px;
-    margin-bottom: 20px;
+    padding: 1.25rem;
+    margin-bottom: 1.25rem;
     position: relative;
 }
 .customer-review-content img{
@@ -413,7 +413,7 @@ header{
 }
 
 #stylish-axure-design-section{
-    margin-top: 50px;
+    margin-top: 3.125rem;
     background-image: url("../images/u25_state0.png");
     /* background-attachment: fixed; */
     /* background-position: center; */
@@ -433,19 +433,19 @@ header{
 }
 #stylish-axure-design-section button{
     background-color: transparent;
-    padding: 10px 25px;
+    padding: 0.625rem 1.563rem;
     border: 2px solid var(--white);
-    margin-top: 25px;
+    margin-top: 1.563rem;
     color: var(--white);
 }
 #contact-us-section{
-    padding-top: 60px;
+    padding-top: 3.75rem;
 }
 #contact-us-form-container{
     display: flex;
     justify-content: space-between;
     gap: 30px;
-    margin-top: 30px;
+    margin-top: 1.875rem;
 }
 #contact-us-form-first-item{
     display: flex;
@@ -478,18 +478,82 @@ header{
     color: var(--white);
     border-radius: 4px;
     border: none;
-    padding: 10px 15px;
+    padding: 0.625rem 0.938rem;
 }
 footer{
     background-color: var(--black);
     text-align: center;
-    
-    padding: 10px 0px;
-    margin-top: 40px;
+    padding: 0.625rem 0rem;
+    margin-top: 2.5rem;
 }
 
 footer p{
     color: var(--paragraph-color);
-    font-size: 14px;
-    margin-top: 10px;
+    font-size: 0.875rem;
+    margin-top: 0.625rem;
+}
+
+
+/* after 900px */
+@media(max-width:900px){
+    #sub-social-section{
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    #sub-social-section-second-item img{
+        max-width: 500px;
+    }
+    #introduction-sub-section{
+        flex-direction: column;
+        gap: 20px;
+    }
+    #introduction-background-section{
+        height: auto;
+        padding: 3.125rem 0rem;
+    }
+}
+
+/* after 750 screen width */
+@media(max-width:750px){
+    #sub-tab-content{
+        flex-direction: column;
+    }
+    .common-tabs{
+        padding: 1.25rem;
+    }
+
+    #packages-container{
+        flex-direction: column;
+        align-items: stretch;
+        gap: 50px;
+    }
+}
+
+/* after 580px */
+@media(max-width: 580px){
+    html{
+        font-size: 13px;
+    }
+    #sub-header{
+        flex-direction: column;
+        gap: 30px;
+    }
+    #navigation ul{
+        flex-direction: column;
+        padding-left: 0rem;
+    }
+    .sub-list-section-child{
+        flex-direction: column;
+    }
+    #sub-list-section-two{
+        flex-direction: column;
+    }
+    #awesome-info{
+        flex-direction: column;
+        gap: 30px;
+    }
+    #cutomer-review-container{
+        flex-direction: column;
+    }
 }
