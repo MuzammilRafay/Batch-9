@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css Animation</title>
+    <style>
+        *{
+            margin: 0;
+        }
+        .parent{
+            background-color: blue;
+            height: 500px;
+            width: 60%;
+            
+        }
+        .child{
+            background-color: red;
+            width: 300px;
+            height: 300px;
+            /* animation-name: left-to-right;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-play-state: paused; */
+            animation: left-to-right linear alternate 2s infinite;
+
+
+        }
+
+        .parent:hover .child{
+            animation-play-state: running;
+        }
+
+
+        @keyframes left-to-right{
+            0%{
+                /* x,y */
+                transform: translate(0%,0%);
+                background-color: red;
+            }
+            40%{
+                transform: translate(40%,40%);
+                background-color: yellow;
+            }
+            80%{
+                transform: translate(80%,80%);
+                background-color: green;
+            }
+
+            100%{
+                transform: translate(100%,100%);
+                background-color: black;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">&nbsp;</div>
+    </div>
+</body>
+</html>
