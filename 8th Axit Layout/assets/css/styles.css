@@ -66,6 +66,9 @@ header{
 }
 #introduction-first-section{
     flex-basis: 45%;
+    animation-name: left-to-right;
+    animation-duration: 1.5s;
+    
 }
 #introduction-first-section img{
     margin-bottom: 1.25rem;
@@ -117,6 +120,9 @@ header{
 }
 #introduction-second-section{
     flex-basis: 35%;
+    animation-name: right-to-left;
+    animation-duration: 1.5s;
+    
 }
 #form-header{
     background-color: var(--background-color-one);
@@ -555,5 +561,46 @@ footer p{
     }
     #cutomer-review-container{
         flex-direction: column;
+    }
+}
+
+
+#logo{
+    animation-name: left-to-right;
+    animation-duration: 1.5s;
+}
+
+#navigation{
+    animation-name: right-to-left;
+    animation-duration: 1.5s;
+}
+
+@keyframes left-to-right {
+    0%{
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    80%{
+        opacity: 0.80;
+        transform: translateX(10px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes right-to-left {
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    80%{
+        opacity: 0.80;
+        transform: translateX(-20px);
+    }
+    100%{
+        opacity: 1;
+        transform: translateX(0px);
     }
 }
