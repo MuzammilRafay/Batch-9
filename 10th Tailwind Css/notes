@@ -1,0 +1,50 @@
+https://tailwindcss.com/docs/installation
+
+-run these commands step by step
+
+npm install -D tailwindcss
+npx tailwindcss init
+
+
+go to this file tailwind.config.js
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: ["./src/**/*.{html,js}"],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+
+create this folder src/input.css
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+then run this command in your project folder
+
+npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch
+
+then link this css file in your html file
+
+ <link href="../dist/output.css" rel="stylesheet">
+
+
+go to package.json
+
+{
+  "scripts": {
+    "start": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.3.3"
+  }
+}
+
+
+add scripts in package.json file
+
+then run npm run start
