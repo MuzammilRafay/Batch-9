@@ -1,0 +1,17 @@
+Tailwind Css is Css Utility Framework
+(apk pas css ki properties convert hoti hein classes mein)
+
+
+Bootstrap is a Css Framework
+(isme apk pas pure pure components honge using css)
+
+
+
+
+https://www.w3schools.com/bootstrap5/bootstrap_get_started.php
+
+
+
+https://www.w3schools.com/bootstrap5/bootstrap_grid_basic.php
+
+
