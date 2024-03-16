@@ -1,0 +1,81 @@
+======GITHUB DEFINITION======
+github is free open source tool for saving your code
+
+
+
+---benifits
+1-maintain files history
+2-branch (exact code copy) (so multiple person can work together)
+
+example : 
+
+abdul rehman (header) -> branch-name -> header-working
+muzammil sahab (sidebar) -> branch-name -> sidebar-working
+musaddiq sahab (main content) -> branch-name -> main-content-working
+
+
+
+header-working is branch ko merge kardo release/dev mein
+sidebar-working is branch ko merge kardo release/dev mein
+main-content-working is branch ko merge kardo release/dev mein
+
+
+release/dev -> end me sab se updated branch hai 
+
+
+==========DOWNLOAD GIT=======
+https://git-scm.com/downloads
+
+===Create Your Account on Github=====
+https://github.com/
+
+https://www.youtube.com/watch?v=w5-4WeyOtN4&ab_channel=DefCode
+
+
+/*===============================================
+=            CONFIGURATION OF GITHUB            =
+===============================================*/
+go to anywhere right click and then click on git bash here and 
+
+run these commands step by step
+
+git config --global user.name "yourname"
+git config --global user.email "yourgmail@gmail.com"
+
+ssh-keygen -t rsa -b 4096 -C "yourgmail@gmail.com"
+
+
+press enter two times
+
+https://www.w3schools.com/git/git_security_ssh.asp?remote=github
+
+
+go to this directory 
+
+/c/Users/your-computer-user-name/.ssh/id_rsa.pub
+
+open this file and copy the key
+
+https://www.w3schools.com/git/git_remote_add_ssh.asp?remote=github
+
+
+dono keys ko match karayega github jab bi ap koi command run karoge ap
+
+is liye local wali key ko apko github par add karna hoga 
+
+
+=================================================================
+ HOW TO CREATE REPOSITORY (PROJECT)
+=================================================================
+after logging to your account go to this link https://github.com/
+
+then click on new button for creating new project/repository
+
+
+echo "# Batch 9 Testing"
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/MuzammilRafay/Batch-9-Testing.git
+git push -u origin main
