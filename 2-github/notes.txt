@@ -79,3 +79,50 @@ git commit -m "first commit"
 git branch -M main
 git remote add origin https://github.com/MuzammilRafay/Batch-9-Testing.git
 git push -u origin main
+
+
+=========CHECK FILE CHANGES COMMAND====
+git status
+
+====Add All Files in to Github Commit=======
+git add filename
+or
+git add . (sari add kardo)
+
+=======Add Commit==============
+git commit -m "this is my second commit"
+
+
+=====Add All Commits To Live Repository====
+git push
+
+
+
+add & commit & push
+
+
+================Create Branch on Local System==============
+
+=========CHECK ALL LOCAL BRANCH=====
+git branch
+
+
+========Create New Branch=====
+git branch abdul-wasey
+
+
+=======Switch/Change to Branch====
+git switch abdul-wasey
+or
+git checkout abdul-wasey
+
+================Create Branch on Local System==============
+
+
+=======Get All Branch From Live=====
+git fetch
+
+========Switch/Change In to Live Branch===========
+git fetch && git checkout hayyan
+
+
