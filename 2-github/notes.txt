@@ -126,3 +126,48 @@ git fetch
 git fetch && git checkout hayyan
 
 
+/*========================================
+=            GET UPDATED CODE FROM LIVE           =
+========================================*/
+
+git pull
+or
+git fetch && git pull
+
+/*=====  End of GET UPDATED CODE  ======*/
+
+
+
+/*========================================
+=            MERGE CODE FROM ANOTHER BRANCHS =
+========================================*/
+
+git merge branch-name
+
+if you see editor in terminal just enter this word and press enter
+
+:wq!
+
+just press enter after entering this word
+
+
+
+
+
+
+/*=====  MERGE CODE FROM ANOTHER BRANCHS  ======*/
+
+
+
+<<<<<<head means (current branch change )
+
+<<<<<<< HEAD
+	<h1>Correct Layout Name 11</h1>
+
+=======
+	<h1>Correct Layout Name 2</h1>
+	<h1>Correct Layout Name 2</h1>
+>>>>>>> third-branch
+
+
+<<<<<<incoming branch change
