@@ -126,6 +126,21 @@ git fetch
 git fetch && git checkout hayyan
 
 
+
+/*=================================
+=            Git Clone            =
+=================================*/
+
+copy https link from repository
+
+git clone https://github.com/MuzammilRafay/Batch-9.git
+
+
+
+/*=====  End of Git Clone  ======*/
+
+
+
 /*========================================
 =            GET UPDATED CODE FROM LIVE           =
 ========================================*/
@@ -171,3 +186,69 @@ just press enter after entering this word
 
 
 <<<<<<incoming branch change
+
+
+
+
+/*========================================
+=            STASH (Temp files)           =
+========================================*/
+
+git add .
+git stash
+
+git stash list
+
+----output---
+stash@{0}: WIP on main: f9cfc1e merge
+stash@{1}: WIP on main: f9cfc1e merge
+
+
+//For Applying temp changes
+
+git stash apply stash@{0}
+git stash apply stash@{1}
+
+
+// All Stash Files are clear
+git stash clear
+
+
+//Specific Clear
+
+git stash drop stash@{0}
+
+
+
+
+
+
+
+
+
+//ap branch switch karna chahre hein but current branch bht changes hein
+//to un changes ko ap stash me kardien agar ap add karenge to wo push hojaega
+
+/*=====  STASH (Temp files)  ======*/
+
+
+
+=========Add Stash Name ==== 
+
+git stash push -m "header task"
+
+
+
+// pick another commit from another branch (so it will give you all work for this commit in to your current branch)
+
+
+git cherry-pickup e9c70a37b46f06e7ed3aaf9649a75745be7cdfdd
+
+
+/*=====================================================
+=            YOU CAN TRY ANOTHER PLATFORMS            =
+=====================================================*/
+GITLAB
+BITBUCKET
+/*=====  End of YOU CAN TRY ANOTHER PLATFORMS  ======*/
+
