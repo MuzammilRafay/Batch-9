@@ -241,7 +241,6 @@ git stash push -m "header task"
 
 // pick another commit from another branch (so it will give you all work for this commit in to your current branch)
 
-
 git cherry-pickup e9c70a37b46f06e7ed3aaf9649a75745be7cdfdd
 
 

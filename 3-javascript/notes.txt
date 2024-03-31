@@ -1,0 +1,32 @@
+Javascript
+
+
+javascript is a programming language
+
+
+there are two types of progrmming languages
+1-server side languages
+2-client (browser) side language
+
+javascript is a client side language
+
+
+javascript features:
+you can create cross platform mobile application  (android/ios) with React Native
+you can also create desktop application cross platform (windows / macos / linux) with Electron Js\
+you can also build games with js
+you can also work on machine learning
+you can also work on web scrapping
+you don't have a choice for client side language
+
+
+first version of js is created in 10 days
+
+Designed by: Brendan Eich
+First appeared: December 4, 1995;
+
+
+The Original JavaScript ES1 ES2 ES3 (1997-1999)
+The First Main Revision ES5 (2009)
+The Second Revision ES6 (2015)
+The Yearly Additions (2016, 2017 ... 2021, 2022)
