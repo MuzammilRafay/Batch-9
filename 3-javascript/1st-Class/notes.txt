@@ -3,6 +3,10 @@ Javascript
 
 javascript is a programming language
 
+and html is not a programming language
+
+
+
 
 there are two types of progrmming languages
 1-server side languages
@@ -30,3 +34,6 @@ The Original JavaScript ES1 ES2 ES3 (1997-1999)
 The First Main Revision ES5 (2009)
 The Second Revision ES6 (2015)
 The Yearly Additions (2016, 2017 ... 2021, 2022)
+
+https://www.w3schools.com/js/tryit.asp?filename=tryjs_lightbulb
+
