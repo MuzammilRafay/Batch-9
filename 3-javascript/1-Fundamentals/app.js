@@ -158,7 +158,7 @@ const HtmlCssJavascriptReactReactNative = "course"; //pascal case
 //convert string to number
 
 const mousePrice = "200"; //type string
-const total = parseInt(mousePrice) + 2;
+const total = parseInt(mousePrice) + 2; // 202
 console.log(total);
 
 const keyboardPrice = "2.2";
@@ -171,7 +171,121 @@ let testing_variable = new Number(mousePrice);
 testing_variable = new Number(true); // 1
 testing_variable = new Number(false); // 0
 testing_variable = new Number(null); // 0
-testing_variable = new Number("hello"); // Nan = Not a Number
+testing_variable = new Number("hello"); // NaN = Not a Number
 testing_variable = new Number([1, 2, 3, 4]); // Nan = Not a Number
 
 console.log(testing_variable, "testing_variable");
+
+//String Methods
+testing_variable = "this is string and string is equal to text";
+testing_variable = new String(12121); // "12121"
+testing_variable = new String(true); // "true"
+
+//2nd method
+let someVariable = 1;
+testing_variable = someVariable.toString(); // "1"
+testing_variable = (12121).toString();
+testing_variable = "asdasdasd".toUpperCase(); //"ASDASDASD"
+
+// Boolean methods
+testing_variable = new Boolean(1); //true
+testing_variable = new Boolean(0); //true
+testing_variable = new Boolean(null); //false
+testing_variable = new Boolean(""); //false
+testing_variable = new Boolean("asdasdasd"); //true
+
+//consoles methods
+// console.log(testing_variable);
+
+testing_variable = {
+  name: "Muzammil",
+  designation: "Senoir Developer",
+  companyName: "Simplifi",
+};
+
+console.log(testing_variable);
+console.table(testing_variable);
+console.warn(testing_variable);
+console.error(testing_variable);
+console.info(testing_variable);
+console.log(testing_variable);
+
+//arthmetic operators in javascript
+testing_variable = 5 + 5;
+testing_variable = 5 - 5;
+testing_variable = 5 / 5;
+testing_variable = 5 % 5;
+testing_variable = 5 * 5;
+
+//Math Object
+
+testing_variable = Math.PI; // 3.14
+testing_variable = Math.E; // 2.7 =  Euler's number
+testing_variable = Math.round(2.5); // 3
+
+// The Math.floor() function returns the largest number less than or equal to a given number.
+/*==================================
+=            math floor            =
+==================================*/
+//for positive numbers
+testing_variable = Math.floor(2.4); //2
+testing_variable = Math.floor(2.3); //2
+testing_variable = Math.floor(2.59); //2
+testing_variable = Math.floor("2.3"); //2
+testing_variable = Math.floor(2); //2
+
+//for negative number
+testing_variable = Math.floor(-2.4); //-3
+testing_variable = Math.floor(-2.3); //-3
+testing_variable = Math.floor(-2.5); //-3
+/*=====  End of math floor  ======*/
+
+testing_variable = Math.pow(8, 4); // 8 * 8 * 8 * 8
+testing_variable = Math.min(1, 2, 1, 36, 3, 4, 5, 6, 7, 8, 9); //return minimum value
+testing_variable = Math.max(1, 2, 1, 36, 3, 4, 5, 6, 7, 8, 9); //return maximum value
+testing_variable = Math.random() * 20 + 1;
+
+//String Concatination (text ko jorne ki bat hori hai)
+const firstName = "Muzammil";
+const lastName = "Mustaqeem";
+
+const fullName = firstName + " " + lastName;
+
+// const testString = 'Hello, World my name is \'Muzammil Mustaqeem and my age \'is 26';
+
+//line break chahiye text mein
+
+//wrong way
+// const testString =
+// "Hello, World my name
+// is'Muzammil Mustaqeem and my age 'is 26";
+
+//correct way
+// const testString =
+//   "Hello, World my name \n \n is'Muzammil Mustaqeem and my age 'is 26";
+
+testing_variable =
+  "Hello, World my name \n \n is'" + fullName + " and my age 'is 26";
+
+// Template Literal
+
+// `` = back tag
+// ${} = interpolation
+
+testing_variable = `Hello, World my name 
+
+is' ${fullName} and my age 'is 26`;
+
+//concat = jornaa
+testing_variable = testing_variable.concat(
+  " new thing",
+  " one more thing",
+  " one more thing"
+);
+
+testing_variable = testing_variable.replace(
+  "Muzammil Mustaqeem",
+  "Abdul Wasey"
+);
+
+console.log(testing_variable);
