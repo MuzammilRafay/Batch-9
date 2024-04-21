@@ -49,8 +49,8 @@ let muzammil_marks = musaddiq_marks; //jo musaddiq ke marks hein wuhi muzammil k
 // let muzammil_marks = { ...musaddiq_marks }; //spread operator //three dot will create a shallow copy of object
 muzammil_marks.math = 70;
 
-console.log(musaddiq_marks, "musaddiq_marks"); // { math: 70 }
-console.log(muzammil_marks, "muzammil_marks"); // { math: 70 }
+// console.log(musaddiq_marks, "musaddiq_marks"); // { math: 70 }
+// console.log(muzammil_marks, "muzammil_marks"); // { math: 70 }
 
 //Reference Type (Object)
 let firstValue = [1, 2, 3];
@@ -59,8 +59,8 @@ let secondValue = firstValue; //reference
 
 secondValue.push(4); //push method will add value at the end of array
 
-console.log(firstValue, "first value"); //[1,2,3,4]
-console.log(secondValue, "second value"); //[1,2,3,4]
+// console.log(firstValue, "first value"); //[1,2,3,4]
+// console.log(secondValue, "second value"); //[1,2,3,4]
 
 //Primitive Type (Number)
 
@@ -113,13 +113,13 @@ console.log(secondValue, "second value"); //[1,2,3,4]
   var headphone = "sony";
 }
 
-console.log(headphone); //it will work
+// console.log(headphone); //it will work
 
 function sayMyName() {
   let name = "John";
 }
 
-console.log(name);
+// console.log(name);
 
 //developer say that we should not use var in javascript code
 
@@ -132,8 +132,8 @@ console.log(name);
 let some = "123123";
 let Some = "111";
 
-console.log(some, "some");
-console.log(Some, "Some");
+// console.log(some, "some");
+// console.log(Some, "Some");
 
 //naming of variables
 // letters,
@@ -159,12 +159,12 @@ const HtmlCssJavascriptReactReactNative = "course"; //pascal case
 
 const mousePrice = "200"; //type string
 const total = parseInt(mousePrice) + 2; // 202
-console.log(total);
+// console.log(total);
 
 const keyboardPrice = "2.2";
 const keyboardTotal = parseFloat(keyboardPrice) + 2;
 
-console.log(keyboardTotal);
+// console.log(keyboardTotal);
 
 //2nd method to convert from string to number
 let testing_variable = new Number(mousePrice);
@@ -174,7 +174,7 @@ testing_variable = new Number(null); // 0
 testing_variable = new Number("hello"); // NaN = Not a Number
 testing_variable = new Number([1, 2, 3, 4]); // Nan = Not a Number
 
-console.log(testing_variable, "testing_variable");
+// console.log(testing_variable, "testing_variable");
 
 //String Methods
 testing_variable = "this is string and string is equal to text";
@@ -189,7 +189,7 @@ testing_variable = "asdasdasd".toUpperCase(); //"ASDASDASD"
 
 // Boolean methods
 testing_variable = new Boolean(1); //true
-testing_variable = new Boolean(0); //true
+testing_variable = new Boolean(0); //false
 testing_variable = new Boolean(null); //false
 testing_variable = new Boolean(""); //false
 testing_variable = new Boolean("asdasdasd"); //true
@@ -203,12 +203,11 @@ testing_variable = {
   companyName: "Simplifi",
 };
 
-console.log(testing_variable);
-console.table(testing_variable);
-console.warn(testing_variable);
-console.error(testing_variable);
-console.info(testing_variable);
-console.log(testing_variable);
+// console.log(testing_variable);
+// console.table(testing_variable);
+// console.warn(testing_variable);
+// console.error(testing_variable);
+// console.info(testing_variable);
 
 //arthmetic operators in javascript
 testing_variable = 5 + 5;
@@ -222,6 +221,7 @@ testing_variable = 5 * 5;
 testing_variable = Math.PI; // 3.14
 testing_variable = Math.E; // 2.7 =  Euler's number
 testing_variable = Math.round(2.5); // 3
+testing_variable = Math.round(2.4); // 2
 
 // The Math.floor() function returns the largest number less than or equal to a given number.
 /*==================================
@@ -288,4 +288,69 @@ testing_variable = testing_variable.replace(
   "Abdul Wasey"
 );
 
-console.log(testing_variable);
+// console.log(testing_variable);
+
+//check exist text
+// testing_variable = testString.includes("Abdul Wasey"); //true
+
+// COMPARISON
+
+const productName = "Briyani";
+// const customerLocation = "North Karachi";
+// const customerLocation = "Nazimabad";
+const customerLocation = "Orangi Town";
+let deliveryCharges = 0;
+
+// == equal to
+
+// if = agar asa ho to
+if (customerLocation == "North Karachi") {
+  deliveryCharges = 90;
+} else if (customerLocation == "Orangi Town") {
+  deliveryCharges = 300;
+} else {
+  deliveryCharges = 200;
+}
+
+// === three equal to / it will check data type also
+
+//customerLocation = string
+//"Orangi Town" = string
+//dono ki type string honi chahiye
+// if (customerLocation === "Orangi Town") {
+
+// 1 === "1" //1 is number and "1" is string it will return false
+// 1 == "1" //1 is number and "1" is string it will return true
+if (1 === "1") {
+  deliveryCharges = 310;
+}
+
+// if (false) {
+//   console.log("it will work");
+// }
+
+// console.log(deliveryCharges);
+// console.log(productName);
+// console.log(customerLocation);
+
+//not equal to  !=
+
+const mobile = "iphone";
+// const mobile = "china";
+
+if (mobile != "china") {
+  console.log("mobile is not from china");
+} else {
+  console.log("your mobile is from china");
+}
+
+//not equal !== / so it will check the both type
+
+// if (1 != "1") { // false
+
+if (1 !== "1") {
+  // true
+  console.log("condition is  true");
+} else {
+  console.log("condition is false");
+}
