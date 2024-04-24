@@ -295,10 +295,10 @@ testing_variable = testing_variable.replace(
 
 // COMPARISON
 
-const productName = "Briyani";
+const productName = "Briyani"; //string
 // const customerLocation = "North Karachi";
-// const customerLocation = "Nazimabad";
-const customerLocation = "Orangi Town";
+const customerLocation = "Nazimabad";
+// const customerLocation = "Orangi Town";
 let deliveryCharges = 0;
 
 // == equal to
@@ -322,6 +322,9 @@ if (customerLocation == "North Karachi") {
 // 1 === "1" //1 is number and "1" is string it will return false
 // 1 == "1" //1 is number and "1" is string it will return true
 if (1 === "1") {
+  // false
+  // if (1 == "1") {
+  // true
   deliveryCharges = 310;
 }
 
@@ -338,19 +341,177 @@ if (1 === "1") {
 const mobile = "iphone";
 // const mobile = "china";
 
-if (mobile != "china") {
-  console.log("mobile is not from china");
-} else {
-  console.log("your mobile is from china");
-}
+// if (mobile != "china") {
+//   console.log("mobile is not from china");
+// } else {
+//   console.log("your mobile is from china");
+// }
 
 //not equal !== / so it will check the both type
 
 // if (1 != "1") { // false
 
-if (1 !== "1") {
-  // true
-  console.log("condition is  true");
+// if (1 !== "1") {
+//   // true
+//   console.log("condition is  true");
+// } else {
+//   console.log("condition is false");
+// }
+
+// GREATER OR LESS THAN
+
+// > greater than
+// < less than
+
+8 > 10; // false
+8 < 10; // true
+
+let id = 100;
+
+// if (id < 40) {
+//   console.log("id is less than from 40");
+// }
+
+// if (id > 40) {
+//   console.log("id is greater than from 40");
+// }
+
+//Logicl Operator
+
+// && AND = both condition should be true
+// || OR  = one condition should be true
+
+const laptop = "lenovo";
+const ram = "8gb";
+
+// if (laptop == "hp" && ram == "8gb") {
+//   console.log("i will purchase this laptop");
+// } else {
+//   console.log("i will not purchase this laptop");
+// }
+
+// if (laptop == "hp" || laptop == "dell") {
+//   console.log("i will purchase this laptop");
+// }
+
+//Ternary Operator
+//single line if else condition
+
+// if (laptop == "hp") {
+//   console.log("i will purchase this laptop");
+// } else {
+//   console.log("i will not purchase this laptop");
+// }
+
+laptop == "hp"
+  ? console.log("i will purchase this laptop")
+  : laptop == "dell"
+  ? console.log("i will purchase dell laptop")
+  : laptop == "asus"
+  ? console.log("i will purchase asus laptop")
+  : console.log("i will not purchase this laptop");
+
+if (id == 101) {
+  // console.log("101 is true");
+} else if (id == 100) {
+  // console.log("100 is true");
+} else if (id == 102) {
+  // console.log("102 is true");
+} else if (id == 103) {
+  // console.log("103 is true");
+} else if (id == 104) {
+  // console.log("104 is true");
+} else if (id == 105) {
+  // console.log("105 is true");
+} else if (id == 106) {
+  // console.log("106 is true");
+} else if (id == 107) {
+  // console.log("107 is true");
 } else {
-  console.log("condition is false");
+  // console.log("not match any conditions");
 }
+
+// you can define conditions without braces
+if (id === 100) console.log("id is 100");
+
+//switch statement
+const color2 = "blue";
+if (color2 == "red") {
+  console.log("color is red");
+} else if (color2 == "blue") {
+  console.log("color is blue");
+} else {
+  console.log("color is not red nor blue");
+}
+
+switch (color2) {
+  case "red":
+    console.log("color is red");
+    break;
+  case "blue":
+    console.log("color is blue");
+    break;
+
+  default:
+    console.log("color is not red nor blue");
+    break;
+}
+
+//Date Object
+
+const today = new Date();
+
+// let birthday = new Date("9-10-1981");
+// let birthday = new Date("November 27 1996"); // month date year
+let birthday = new Date("11/27/1996"); // month date year
+
+// console.log(birthday);
+
+let dateValue = today.getMonth() + 1;
+// dateValue = today.getFullYear();
+// dateValue = today.getMinutes();
+dateValue = today.getHours();
+dateValue = today.getSeconds();
+dateValue = today.getMilliseconds();
+dateValue = today.getTime();
+dateValue = today.getDay();
+
+// console.log(today, "date value");
+// console.log(dateValue, "date value");
+// today.setMonth(1); // -1
+// today.setDate(2); // -1
+// today.setDate(2); // -1
+// today.setFullYear(1985);
+// today.setHours(3);
+// today.setMinutes(22);
+// today.setSeconds(25);
+
+// console.log(today, "date value");
+
+let day;
+
+switch (new Date().getDay()) {
+  case 0:
+    day = "Sunday";
+    break;
+  case 1:
+    day = "Monday";
+    break;
+  case 2:
+    day = "Tuesday";
+    break;
+  case 3:
+    day = "Wednesday";
+    break;
+  case 4:
+    day = "Thursday";
+    break;
+  case 5:
+    day = "Friday";
+    break;
+  case 6:
+    day = "Saturday";
+    break;
+}
+
+console.log(day, "day");
