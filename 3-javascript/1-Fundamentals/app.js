@@ -405,6 +405,10 @@ const ram = "8gb";
 
 laptop == "hp"
   ? console.log("i will purchase this laptop")
+  : console.log("i will not purchase this laptop");
+
+laptop == "hp"
+  ? console.log("i will purchase this laptop")
   : laptop == "dell"
   ? console.log("i will purchase dell laptop")
   : laptop == "asus"
@@ -514,4 +518,70 @@ switch (new Date().getDay()) {
     break;
 }
 
-console.log(day, "day");
+// console.log(day, "day");
+
+//Functions
+
+//A function is simply a “chunk” of code that
+//you can use over and over again, rather
+//than writing it out multiple times.Functions
+// enable programmers to break down or decompose
+//a problem into smaller chunks, each of which performs a particular task.
+
+function normalFunction() {
+  console.log(`normal function`);
+}
+
+normalFunction(); //callback
+
+//pass parameter
+function printMyName(myName) {
+  console.log(`My name is ${myName}`);
+}
+
+printMyName("Abdul wasay");
+printMyName("Ali khan");
+printMyName("Saad");
+
+function printFullName(firstName, lastName) {
+  console.log(`My full name is ${firstName} ${lastName}`);
+}
+
+printFullName("Abdul", "Wasay");
+
+function infiniteParameterFunction(firstParam, secondParam, ...restParams) {
+  console.log(firstParam, "first name");
+  console.log(secondParam, "second name");
+  console.log(restParams, "rest params"); //rest operator
+}
+
+infiniteParameterFunction(1, 2, 3, 4, 5, 6, 7, 8, 9);
+
+//we can return things from functions
+
+function checkCondition() {
+  return false;
+  // return "abdul wasay";
+  // return [1, 2, 4, 5, 6];
+}
+
+const checkConditionVariable = checkCondition(); //checkCondition = false
+
+// console.log(checkCondition(), "checkCondition()");
+
+// IMMIDIATLEY INVOKABLE FUNCTION EXPRESSIONS - IIFEs
+
+// jQuery
+// (function(){
+// })(jQuery);
+
+(function () {
+  console.log("foran call hojao");
+})();
+
+const variableNeedHai = "one";
+const variableNeedHai2 = "two";
+
+(function (firstParam, secondParam) {
+  console.log(`foran call hojao ${firstParam} ${secondParam}`);
+})(variableNeedHai, variableNeedHai2);
