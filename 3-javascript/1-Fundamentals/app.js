@@ -585,3 +585,78 @@ const variableNeedHai2 = "two";
 (function (firstParam, secondParam) {
   console.log(`foran call hojao ${firstParam} ${secondParam}`);
 })(variableNeedHai, variableNeedHai2);
+
+//default parameters
+function printFullName2(firstName = "John", lastName = "Doe") {
+  console.log(`My full name is ${firstName} ${lastName}`);
+}
+
+printFullName2("abdul", "wasay");
+printFullName2();
+
+//Closures
+
+//Global Scope Variable
+//scope = {}
+let a = 4;
+function myFunction() {
+  return a * a;
+}
+
+console.log(myFunction()); // 16
+a = 8;
+console.log(myFunction()); // 64
+
+//local scope
+//scope = {}
+function myFunction2() {
+  let b = 4;
+  return b * b;
+}
+
+console.log(myFunction2()); //16
+
+//counter function
+
+let counter = 0;
+console.log(counter);
+
+function add() {
+  counter += 1;
+  console.log(counter);
+}
+
+add(); //1
+add(); //2
+add(); //3
+add(); //4
+
+counter = 1000;
+add(); // 1001
+
+//iska solution kia hai isko ap scope me rakhein
+
+function add2() {
+  let counter = 0;
+  return counter + 1;
+}
+
+console.log(add2()); // 1
+console.log(add2()); // 1
+console.log(add2()); // 1
+console.log(add2()); // 1
+
+//clousure
+//iffe ke function k andar function hoga
+
+const add3 = (function () {
+  let counter = 0;
+
+  return function () {
+    return (counter += 1);
+  };
+})();
+
+console.log(add3());
+console.log(add3());
+console.log(add3());
