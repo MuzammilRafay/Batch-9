@@ -4,6 +4,7 @@ console.log(document); //it will return you all html
 
 const taskBtn = document.querySelector("#task-button");
 
+//task button k click par ye function chalega
 taskBtn.addEventListener("click", function (event) {
   // console.log(event.target, "event.target");
   event.preventDefault(); //apni default functionality rukdien
@@ -17,7 +18,7 @@ taskBtn.addEventListener("click", function (event) {
 
   if (selectCardTitle.innerText === "Task List") {
     selectCardTitle.innerText = "It is Changed";
-    selectCardTitle.style.color = "red";
+    selectCardTitle.style.color = "yellow";
   } else {
     selectCardTitle.innerText = "Task List";
     selectCardTitle.style.color = "black";
@@ -54,4 +55,20 @@ cardTitle.style.marginBottom = "20px";
 cardTitle.style.display = "none";
 cardTitle.style.display = "block";
 
-console.log(valOfDom, "val of dom");
+// console.log(valOfDom, "val of dom");
+
+const clearTaskBtn = document.querySelector(".clear-tasks");
+
+// console.log(clearTaskBtn);
+
+clearTaskBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+  console.log("click is working");
+  // document.querySelector(".collection-item").style.color = "yellow";
+
+  if (document.querySelector(".collection-item").style.color === "yellow") {
+    document.querySelector(".collection-item").style.color = "red";
+  } else {
+    document.querySelector(".collection-item").style.color = "yellow";
+  }
+});
