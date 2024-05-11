@@ -63,12 +63,79 @@ const clearTaskBtn = document.querySelector(".clear-tasks");
 
 clearTaskBtn.addEventListener("click", function (event) {
   event.preventDefault();
+
   console.log("click is working");
   // document.querySelector(".collection-item").style.color = "yellow";
 
-  if (document.querySelector(".collection-item").style.color === "yellow") {
-    document.querySelector(".collection-item").style.color = "red";
-  } else {
-    document.querySelector(".collection-item").style.color = "yellow";
-  }
+  // if (document.querySelector(".collection-item").style.color === "yellow") {
+  //   document.querySelector(".collection-item").style.color = "red";
+  // } else {
+  //   document.querySelector(".collection-item").style.color = "yellow";
+  // }
+
+  // const selectAllElement = document.querySelectorAll(".collection-item");
+  const selectAllElement = document.querySelectorAll(
+    ".collection-item:nth-child(even)"
+  );
+  selectAllElement.forEach(function (singleItem) {
+    if (singleItem.style.color === "yellow") {
+      singleItem.style.color = "red";
+    } else {
+      singleItem.style.color = "yellow";
+    }
+  });
+
+  const selectAllElement2 = document.querySelectorAll(
+    ".collection-item:nth-child(odd)"
+  );
+  selectAllElement2.forEach(function (singleItem) {
+    if (singleItem.style.color === "green") {
+      singleItem.style.color = "purple";
+    } else {
+      singleItem.style.color = "green";
+    }
+  });
 });
+
+//how to select all elements from dom
+// const selectAllCollectionItem = document.querySelectorAll(".collection-item"); // it will return an array
+// console.log(selectAllCollectionItem, "selectAllCollectionItem");
+
+//how to select one element from all elements
+//we will use loop
+
+// console.log(selectAllCollectionItem, "selectAllCollectionItem");
+// //[1,2,3,4,5]
+// selectAllCollectionItem.forEach(function (singleItem, index) {
+//   // console.log(singleItem, "singleItem");
+//   // console.log(index, "index");
+//   singleItem.style.color = "yellow";
+// });
+
+//traversing
+//up down jana dom mein
+
+const selectAllCrossBtns = document.querySelectorAll(".delete-item");
+
+// console.log(selectAllCrossBtns, "selectAllCrossBtns");
+
+selectAllCrossBtns.forEach(function (singleItem) {
+  singleItem.addEventListener("click", function (event) {
+    event.preventDefault();
+    console.log("cross btn is clicked!");
+
+    //jis element par click kia hai wuhi element mere pas ajae console me
+
+    const currentClickedElement = event.target;
+
+    // console.log(currentClickedElement, "currentClickedElement");
+    currentClickedElement.parentElement.parentElement.remove();
+
+    // console.log(
+    //   currentClickedElement.parentElement.parentElement,
+    //   "current element ke abbu element"
+    // );
+  });
+});
+
+//event bubling agar apne event listener click ka lagaya tu uske sare children par click lag jaega
