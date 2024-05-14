@@ -74,6 +74,7 @@ clearTaskBtn.addEventListener("click", function (event) {
   // }
 
   // const selectAllElement = document.querySelectorAll(".collection-item");
+
   const selectAllElement = document.querySelectorAll(
     ".collection-item:nth-child(even)"
   );
@@ -112,30 +113,73 @@ clearTaskBtn.addEventListener("click", function (event) {
 //   singleItem.style.color = "yellow";
 // });
 
-//traversing
+//traversing in dom
 //up down jana dom mein
 
 const selectAllCrossBtns = document.querySelectorAll(".delete-item");
 
 // console.log(selectAllCrossBtns, "selectAllCrossBtns");
 
-selectAllCrossBtns.forEach(function (singleItem) {
-  singleItem.addEventListener("click", function (event) {
-    event.preventDefault();
-    console.log("cross btn is clicked!");
+// selectAllCrossBtns.forEach(function (singleItem) {
+//   singleItem.addEventListener("click", function (event) {
+//     event.preventDefault();
+//     // console.log("cross btn is clicked!");
 
-    //jis element par click kia hai wuhi element mere pas ajae console me
+//     //jis element par click kia hai wuhi element mere pas ajae console me
 
-    const currentClickedElement = event.target;
+//     const currentClickedElement = event.target;
 
-    // console.log(currentClickedElement, "currentClickedElement");
-    currentClickedElement.parentElement.parentElement.remove();
+//     // console.log(currentClickedElement, "currentClickedElement");
+//     currentClickedElement.parentElement.parentElement.remove();
 
-    // console.log(
-    //   currentClickedElement.parentElement.parentElement,
-    //   "current element ke abbu element"
-    // );
-  });
-});
+//     // console.log(
+//     //   currentClickedElement.parentElement.parentElement,
+//     //   "current element ke abbu element"
+//     // );
+//   });
+// });
 
 //event bubling agar apne event listener click ka lagaya tu uske sare children par click lag jaega
+
+// document.querySelector("body").addEventListener("click", function (event) {
+//   event.preventDefault();
+//   console.log(event.target);
+// });
+
+//event delegation
+document
+  .querySelector(".collection")
+  .addEventListener("click", function (event) {
+    console.log(event.target, "ye wala console yee");
+    //jis element par click karo wuhi ajae
+    const currentElement = event.target;
+    if (currentElement.className === "fa fa-remove") {
+      //apne delete btn par click kia hai
+      event.preventDefault();
+      currentElement.parentElement.parentElement.remove();
+    }
+  });
+
+//event stop propagation
+
+// agar parent ka click buble hote we ara hai or ksi specific child par click nai lagana us par event.stopPropagation() dedenge
+
+/*
+<div id="outer">
+  <div id="inner">Click me!</div>
+</div>
+
+document.getElementById('outer').addEventListener('click', function() {
+  console.log('Outer div clicked');
+});
+
+document.getElementById('inner').addEventListener('click', function(event) {
+  event.stopPropagation();
+  console.log('Inner div clicked');
+});
+
+*/
+
+//nextElementSibling
+//previousElementSibling
+//closest
