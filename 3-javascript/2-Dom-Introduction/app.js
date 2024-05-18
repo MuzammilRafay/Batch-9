@@ -57,46 +57,46 @@ cardTitle.style.display = "block";
 
 // console.log(valOfDom, "val of dom");
 
-const clearTaskBtn = document.querySelector(".clear-tasks");
+// const clearTaskBtn = document.querySelector(".clear-tasks");
 
-// console.log(clearTaskBtn);
+// // console.log(clearTaskBtn);
 
-clearTaskBtn.addEventListener("click", function (event) {
-  event.preventDefault();
+// clearTaskBtn.addEventListener("click", function (event) {
+//   event.preventDefault();
 
-  console.log("click is working");
-  // document.querySelector(".collection-item").style.color = "yellow";
+//   console.log("click is working");
+//   // document.querySelector(".collection-item").style.color = "yellow";
 
-  // if (document.querySelector(".collection-item").style.color === "yellow") {
-  //   document.querySelector(".collection-item").style.color = "red";
-  // } else {
-  //   document.querySelector(".collection-item").style.color = "yellow";
-  // }
+//   // if (document.querySelector(".collection-item").style.color === "yellow") {
+//   //   document.querySelector(".collection-item").style.color = "red";
+//   // } else {
+//   //   document.querySelector(".collection-item").style.color = "yellow";
+//   // }
 
-  // const selectAllElement = document.querySelectorAll(".collection-item");
+//   // const selectAllElement = document.querySelectorAll(".collection-item");
 
-  const selectAllElement = document.querySelectorAll(
-    ".collection-item:nth-child(even)"
-  );
-  selectAllElement.forEach(function (singleItem) {
-    if (singleItem.style.color === "yellow") {
-      singleItem.style.color = "red";
-    } else {
-      singleItem.style.color = "yellow";
-    }
-  });
+//   const selectAllElement = document.querySelectorAll(
+//     ".collection-item:nth-child(even)"
+//   );
+//   selectAllElement.forEach(function (singleItem) {
+//     if (singleItem.style.color === "yellow") {
+//       singleItem.style.color = "red";
+//     } else {
+//       singleItem.style.color = "yellow";
+//     }
+//   });
 
-  const selectAllElement2 = document.querySelectorAll(
-    ".collection-item:nth-child(odd)"
-  );
-  selectAllElement2.forEach(function (singleItem) {
-    if (singleItem.style.color === "green") {
-      singleItem.style.color = "purple";
-    } else {
-      singleItem.style.color = "green";
-    }
-  });
-});
+//   const selectAllElement2 = document.querySelectorAll(
+//     ".collection-item:nth-child(odd)"
+//   );
+//   selectAllElement2.forEach(function (singleItem) {
+//     if (singleItem.style.color === "green") {
+//       singleItem.style.color = "purple";
+//     } else {
+//       singleItem.style.color = "green";
+//     }
+//   });
+// });
 
 //how to select all elements from dom
 // const selectAllCollectionItem = document.querySelectorAll(".collection-item"); // it will return an array
@@ -153,6 +153,7 @@ document
     console.log(event.target, "ye wala console yee");
     //jis element par click karo wuhi ajae
     const currentElement = event.target;
+
     if (currentElement.className === "fa fa-remove") {
       //apne delete btn par click kia hai
       event.preventDefault();
@@ -175,6 +176,7 @@ document.getElementById('outer').addEventListener('click', function() {
 
 document.getElementById('inner').addEventListener('click', function(event) {
   event.stopPropagation();
+  //event bubling wala click jo parent se ara hai use rukne k liye ap stopPropogation dete hein
   console.log('Inner div clicked');
 });
 
@@ -183,3 +185,60 @@ document.getElementById('inner').addEventListener('click', function(event) {
 //nextElementSibling
 //previousElementSibling
 //closest
+
+//Create Element in Dom
+
+const h1Element = document.createElement("h1"); // <h1></h1>
+h1Element.innerText = "My name is muzammil"; //<h1>My name is muzammil</h1>
+// h1Element.className = "";
+h1Element.setAttribute("id", "asdasdasd"); //<h1 id="asdasdasd">My name is muzammil</h1>
+h1Element.setAttribute("class", "asdasdasdasdasd"); //<h1 id="asdasdasd" class="asdasdasdasdasd">My name is muzammil</h1>
+
+console.log(h1Element);
+
+const collectionElement = document.querySelector(".collection");
+
+console.log(collectionElement, "collectionElement");
+
+collectionElement.append(h1Element); //add kardo html dom me last me
+// collectionElement.prepend(h1Element); //add kardo html dom me shuru me
+
+// h1Element.click()
+// h1Element.remove()
+//Event Listner
+
+/* In JavaScript, an event listener is a function that waits for a specific event to occur 
+and then responds to that event. Events can be various user interactions with a web page, 
+such as clicking a button, moving the mouse, pressing a key, submitting a form, etc. */
+
+const clearBtn = document.querySelector(".clear-tasks");
+// clearBtn.addEventListener("click", runEventFunction);
+// clearBtn.addEventListener("dblclick", runEventFunction);
+// clearBtn.addEventListener("mousedown", runEventFunction);
+// clearBtn.addEventListener("mouseup", runEventFunction);
+// clearBtn.addEventListener("mouseenter", runEventFunction);
+// clearBtn.addEventListener("mouseleave", runEventFunction);
+// clearBtn.addEventListener("mouseover", runEventFunction);
+
+/*
+mouseover vs mouseenter
+The mouseover event triggers when the mouse pointer enters the div element, 
+and its child elements. The mouseenter event is only triggered 
+when the mouse pointer enters the div element.
+
+*/
+
+function runEventFunction(event) {
+  event.preventDefault();
+  console.log(`Event Type ${event.type}`);
+}
+console.log(clearBtn, "clearBtn");
+
+// https://t4.ftcdn.net/jpg/05/47/97/81/360_F_547978128_vqEEUYBr1vcAwfRAqReZXTYtyawpgLcC.jpg
+
+// https://www.w3schools.com/tags/att_a_download.asp
+//click
+//dom me a ka tag create karo
+// <a href="https://t4.ftcdn.net/jpg/05/47/97/81/360_F_547978128_vqEEUYBr1vcAwfRAqReZXTYtyawpgLcC.jpg" download>
+// is a ko click ka function kardo run
+//remove kardo phr is a ko
