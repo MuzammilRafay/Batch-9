@@ -228,11 +228,7 @@ when the mouse pointer enters the div element.
 
 */
 
-function runEventFunction(event) {
-  event.preventDefault();
-  console.log(`Event Type ${event.type}`);
-}
-console.log(clearBtn, "clearBtn");
+// console.log(clearBtn, "clearBtn");
 
 // https://t4.ftcdn.net/jpg/05/47/97/81/360_F_547978128_vqEEUYBr1vcAwfRAqReZXTYtyawpgLcC.jpg
 
@@ -242,3 +238,29 @@ console.log(clearBtn, "clearBtn");
 // <a href="https://t4.ftcdn.net/jpg/05/47/97/81/360_F_547978128_vqEEUYBr1vcAwfRAqReZXTYtyawpgLcC.jpg" download>
 // is a ko click ka function kardo run
 //remove kardo phr is a ko
+
+//input field events
+
+const taskInput = document.querySelector("#task");
+
+// taskInput.addEventListener("input", runEventFunction);
+// taskInput.addEventListener("keyup", runEventFunction);
+// taskInput.addEventListener("keydown", runEventFunction);
+// taskInput.addEventListener("keypress", runEventFunction);
+// taskInput.addEventListener("focus", runEventFunction);
+// taskInput.addEventListener("blur", runEventFunction);
+// taskInput.addEventListener("cut", runEventFunction);
+// taskInput.addEventListener("copy", runEventFunction);
+// taskInput.addEventListener("paste", runEventFunction);
+
+function runEventFunction(event) {
+  event.preventDefault();
+  console.log(`Event Type ${event.type}`);
+}
+
+const selectDropdown = document.querySelector("#abc-dropdown");
+selectDropdown.addEventListener("change", function (e) {
+  e.preventDefault();
+
+  console.log(e.target.value, "selected dropdown value");
+});
