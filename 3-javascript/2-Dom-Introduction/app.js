@@ -264,3 +264,28 @@ selectDropdown.addEventListener("change", function (e) {
 
   console.log(e.target.value, "selected dropdown value");
 });
+
+const clearTaskBtn = document.querySelector(".clear-tasks");
+
+clearTaskBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  // const aElement = document.createElement("a");
+  // aElement.href = "image.jpg";
+  // aElement.download = "filename.jpg";
+  // aElement.click();
+  // aElement.remove();
+
+  //2nd Method
+  const imageUrl =
+    "https://t4.ftcdn.net/jpg/05/47/97/81/360_F_547978128_vqEEUYBr1vcAwfRAqReZXTYtyawpgLcC.jpg";
+  fetch(imageUrl)
+    .then((response) => response.blob())
+    .then((blob) => {
+      const url = URL.createObjectURL(blob);
+      const aElement = document.createElement("a");
+      aElement.href = url;
+      aElement.download = "filename.jpg";
+      aElement.click();
+      aElement.remove();
+    });
+});
