@@ -59,6 +59,7 @@ clearTaskBtn.addEventListener("click", function (event) {
 
   if (confirm("Are you sure ?")) {
     collection.innerHTML = "";
+    localStorage.removeItem("tasks");
   }
 });
 
@@ -70,6 +71,7 @@ collection.addEventListener("click", function (event) {
     // if (currentElement.classList.includes("fa fa-remove")) {
     if (confirm("Are you sure ?")) {
       currentElement.parentElement.parentElement.remove();
+      saveAllTasksOnLocalStorage();
     }
   }
 });
@@ -114,7 +116,27 @@ function saveAllTasksOnLocalStorage() {
     tasks.push(singleCollectionItem.innerText);
   });
 
-  console.log(tasks, "tasks");
-
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
+
+document.addEventListener("DOMContentLoaded", function (event) {
+  //after reading the all html from dom
+  //jab apki html load hojaegi ye event ka function chalega
+
+  const getTasks = JSON.parse(localStorage.getItem("tasks"));
+
+  // console.log(getTasks, "getTasks");
+
+  getTasks.forEach(function (singleTask) {
+    // console.log(singleTask, "singleTask");
+
+    const liElement = document.createElement("li");
+    liElement.className = "collection-item";
+    liElement.innerHTML = `${singleTask}
+  <a href="#" class="delete-item secondary-content">
+    <i class="fa fa-remove"></i>
+  </a>`;
+
+    collection.appendChild(liElement);
+  });
+});
