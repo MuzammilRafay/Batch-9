@@ -14,31 +14,39 @@ taskForm.addEventListener("submit", function (event) {
     return;
   }
 
-  /*
-create this type of element in dom
+  const updatingTaskElement = document.querySelector(".updating-task");
 
-<li class="collection-item">
-                  List Item
-                  <a href="#" class="delete-item secondary-content">
-                    <i class="fa fa-remove"></i>
-                  </a>
-                </li>
-  */
+  //agar updating task wala element mujood hai to smj jao edit hora hai
+  if (Boolean(updatingTaskElement)) {
+    updatingTaskElement.innerHTML = `${inputValue}
+    <a href="#" class="delete-item secondary-content">
+      <i class="fa fa-edit" style='color:blue;'></i>
+      <i class="fa fa-remove" style="color:red;"></i>
+    </a>`;
 
-  const liElement = document.createElement("li");
-  liElement.className = "collection-item";
-  liElement.innerHTML = `${inputValue}
+    document
+      .querySelectorAll(".collection-item")
+      .forEach(function (singleItem) {
+        singleItem.classList.remove("updating-task");
+      });
+
+    document.querySelector('#task-form input[type="submit"]').value =
+      "ADD TASK";
+  } else {
+    const liElement = document.createElement("li");
+    liElement.className = "collection-item";
+    liElement.innerHTML = `${inputValue}
   <a href="#" class="delete-item secondary-content">
-    <i class="fa fa-remove"></i>
+    <i class="fa fa-edit" style='color:blue;'></i>
+    <i class="fa fa-remove" style="color:red;"></i>
   </a>`;
 
-  collection.appendChild(liElement);
-
+    collection.appendChild(liElement);
+  }
   taskInput.value = "";
+  saveAllTasksOnLocalStorage();
 
   //   console.log(liElement);
-
-  saveAllTasksOnLocalStorage();
 });
 
 /*
@@ -73,6 +81,25 @@ collection.addEventListener("click", function (event) {
       currentElement.parentElement.parentElement.remove();
       saveAllTasksOnLocalStorage();
     }
+  }
+
+  //edit
+
+  if (currentElement.className === "fa fa-edit") {
+    taskInput.value = currentElement.parentElement.parentElement.innerText;
+
+    document.querySelector('#task-form input[type="submit"]').value =
+      "UPDATE TASK";
+
+    //loop all li items ka then remove karenge update-wali class
+
+    document
+      .querySelectorAll(".collection-item")
+      .forEach(function (singleItem) {
+        singleItem.classList.remove("updating-task");
+      });
+
+    currentElement.parentElement.parentElement.classList.add("updating-task");
   }
 });
 
@@ -119,7 +146,9 @@ function saveAllTasksOnLocalStorage() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-document.addEventListener("DOMContentLoaded", function (event) {
+document.addEventListener("DOMContentLoaded", domLoadedFunction);
+
+function domLoadedFunction() {
   //after reading the all html from dom
   //jab apki html load hojaegi ye event ka function chalega
 
@@ -127,16 +156,36 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   // console.log(getTasks, "getTasks");
 
-  getTasks.forEach(function (singleTask) {
+  getTasks.forEach(function (singleTask, index) {
     // console.log(singleTask, "singleTask");
 
     const liElement = document.createElement("li");
     liElement.className = "collection-item";
     liElement.innerHTML = `${singleTask}
-  <a href="#" class="delete-item secondary-content">
-    <i class="fa fa-remove"></i>
-  </a>`;
+      <a href="#" class="delete-item secondary-content">
+        <i class="fa fa-edit" style='color:blue;'></i>
+        <i class="fa fa-remove" style="color:red;"></i>
+      </a>`;
 
     collection.appendChild(liElement);
+  });
+}
+
+//Search Tasks
+//https://www.w3schools.com/jsref/jsref_indexof.asp
+
+const filterInputField = document.querySelector("#filter");
+
+filterInputField.addEventListener("keyup", function (event) {
+  const filterInputValue = event.target.value.toLowerCase();
+
+  const getAllLiCollectionItems = document.querySelectorAll(".collection-item");
+
+  getAllLiCollectionItems.forEach(function (singleLiItem) {
+    if (singleLiItem.innerText.toLowerCase().indexOf(filterInputValue) !== -1) {
+      singleLiItem.style.display = "block";
+    } else {
+      singleLiItem.style.display = "none";
+    }
   });
 });
