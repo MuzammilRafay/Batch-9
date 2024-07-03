@@ -16,29 +16,54 @@ cusomShopContainer.addEventListener("click", function (e) {
     const cartItemPrice =
       mainShopItemDiv.querySelector(".shop-item-price").innerText;
 
-    const divElement = document.createElement("div");
-    divElement.className = "cart-row";
-    divElement.innerHTML = `<div class="cart-item cart-column">
-              <img
-                class="cart-item-image"
-                src="${cartItemImage}"
-                width="100"
-                height="100"
-              />
-              <span class="cart-item-title">${cartItemName}</span>
-            </div>
-            <span class="cart-column">
-              $ <span class="cart-price-item-item">${cartItemPrice}</span>
-            </span>
-            <div class="cart-quantity cart-column" style="flex-grow:1;">
-              <input class="cart-quantity-input" type="number" value="1" />
-              <button class="btn btn-danger btn-remove" type="button">
-                REMOVE
-              </button>
-            </div>`;
+    //check if this product is already exist in our cart
 
-    // console.log(divElement, "divElement");
-    cartItems.append(divElement);
+    let isThisItemIsExist = false;
+
+    const getAllCartItems = document.querySelectorAll(".cart-row");
+
+    if (getAllCartItems.length > 0) {
+      getAllCartItems.forEach(function (singleCartItem) {
+        // ?. = optional chaining
+        const productNameCart =
+          singleCartItem.querySelector(".cart-item-title")?.innerText;
+
+        if (productNameCart === cartItemName) {
+          isThisItemIsExist = true;
+
+          const cartQtyField = singleCartItem.querySelector(
+            ".cart-quantity-input"
+          );
+          cartQtyField.value = parseInt(cartQtyField.value) + 1;
+        }
+      });
+    }
+
+    if (!isThisItemIsExist) {
+      const divElement = document.createElement("div");
+      divElement.className = "cart-row";
+      divElement.innerHTML = `<div class="cart-item cart-column">
+                <img
+                  class="cart-item-image"
+                  src="${cartItemImage}"
+                  width="100"
+                  height="100"
+                />
+                <span class="cart-item-title">${cartItemName}</span>
+              </div>
+              <span class="cart-column">
+                $ <span class="cart-price-item-item">${cartItemPrice}</span>
+              </span>
+              <div class="cart-quantity cart-column" style="flex-grow:1;">
+                <input class="cart-quantity-input" type="number" value="1" />
+                <button class="btn btn-danger btn-remove" type="button">
+                  REMOVE
+                </button>
+              </div>`;
+
+      // console.log(divElement, "divElement");
+      cartItems.append(divElement);
+    }
 
     calculateTotal();
   }
