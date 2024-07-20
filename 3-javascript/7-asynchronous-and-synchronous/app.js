@@ -133,3 +133,184 @@ const doSomethingAsyncMethod = async function () {
   console.log(dataThree, "dataThree async method");
 };
 doSomethingAsyncMethod();
+
+//Another Topic
+//Arrow function
+
+// const hello = function() {
+// return "Hello World";
+// }
+
+const hello = () => {
+  return "Hello World!";
+};
+
+// function name(){
+//   return 'asdasd'
+//   asdasd
+
+//   asdasdasd
+//   as
+//   DataTransferd
+// }
+
+// const ww = name();
+// console.log(ww) //asdasd
+
+// Arrow Functions Return Value by Default:
+hello = () => "Hello World!";
+
+// Arrow Function Without Parentheses if you have only one param:
+
+// hello = (parameter) => "Hello " + parameter;
+// hello = parameter => "Hello " + parameter;
+// hello("asdasd"); // Hello asdasd
+
+//arrow function issue with this
+
+// function name(){
+//   this.method(); // it will work
+// }
+
+// const name =  () => {
+//   this.method(); // it will not work
+// }
+
+//this = current thing
+
+// JSON VS XML
+// Both are format and use send & recieve data asyncronusly
+
+// JSON Example
+// {
+//   "employees":[
+//       { "firstName":"John", "lastName":"Doe" },
+//       { "firstName":"Anna", "lastName":"Smith" },
+//       { "firstName":"Peter", "lastName":"Jones" }
+//   ]
+// }
+
+// XML Example
+{
+  /* <employees>
+  <employee>
+   <lastName>Doe</lastName  <firstName>John</firstName>
+  </employee>
+  <employee>
+    <firstName>Anna</firstName> <lastName>Smith</lastName>
+  </employee>
+  <employee>
+    <firstName>Peter</firstName> <lastName>Jones</lastName>
+  </employee>
+</employees> */
+}
+
+// AJAX STANDS FOR Asynchronous Javascript AND Xml
+
+// Set of Web Technologies
+// Send & Receive Data asynchronously
+// Does not interfere with the current
+// Json has replaced XML for the most part
+
+//API
+// Application programming interface
+
+//get data from url & send data from url
+
+// Popular tools for ajax
+
+// Fetch Api
+// Axios
+// Superaragent
+// JQuery
+// Node Http
+
+/*
+REQUEST METHODS
+
+GET = get data
+POST = store/create data   
+PUT = update data
+PATCH = partially update date
+DELETE = delete data 
+
+*/
+
+/*
+REQUEST STATUS CODE
+
+Informational responses (100 – 199)
+Successful responses (200 – 299)
+Redirection messages (300 – 399)
+Client error responses (400 – 499)
+Server error responses (500 – 599)
+
+*/
+
+//Types of Promises
+
+// Promise.all
+// Promise.allSettled
+// Promise.race
+// Promise.any
+
+//Promise all
+//it will wait for all promises and if any one of promise is
+//reject it will reject the whole promise
+
+Promise.all([
+  new Promise(function (resolve) {
+    setTimeout(() => resolve(1), 3000);
+  }), // 1
+  new Promise((resolve) => setTimeout(() => resolve(2), 2000)), // 2
+  new Promise((resolve) => setTimeout(() => resolve(3), 1000)), // 3
+])
+  .then(function (resolve) {
+    // alert(resolve);
+    console.log(resolve, "resolve");
+  })
+  .catch(function (error) {
+    console.log(error, "error");
+  }); // 1,2,3 when promises are ready: each promise
+// contributes an array member
+
+//Promise.allSettled
+//it will not reject the whole promise if anyone promise is rejected
+
+Promise.allSettled([
+  new Promise((resolve, reject) => setTimeout(() => resolve(1), 1000)),
+  new Promise((resolve, reject) =>
+    setTimeout(() => reject(new Error("Whoops!")), 2000)
+  ),
+  new Promise((resolve, reject) => setTimeout(() => resolve(3), 3000)),
+])
+  .then((resolve) => console.log(resolve))
+  .catch(alert); // Error: Whoops!
+
+//Promise.race
+//phle aye phle payye
+
+//jo phle resolve hua hai wuhi ayega
+
+Promise.race([
+  new Promise((resolve, reject) => setTimeout(() => resolve(1), 1000)),
+  new Promise((resolve, reject) =>
+    setTimeout(() => reject(new Error("Whoops!")), 2000)
+  ),
+  new Promise((resolve, reject) => setTimeout(() => resolve(3), 3000)),
+]).then(function (param) {
+  alert(param);
+}); // 1
+
+//Promise.any
+//it will resolve first promise and reject other promises (return promise resolve)
+
+Promise.any([
+  new Promise((resolve, reject) =>
+    setTimeout(() => reject(new Error("Whoops!")), 1000)
+  ),
+  new Promise((resolve, reject) => setTimeout(() => resolve(1), 2000)),
+  new Promise((resolve, reject) => setTimeout(() => resolve(3), 3000)),
+])
+  .then(alert)
+  .catch((rejectedPromises) => console.error(rejectedPromises)); // 1
