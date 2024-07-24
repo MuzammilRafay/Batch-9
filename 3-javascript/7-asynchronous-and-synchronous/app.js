@@ -256,7 +256,7 @@ Server error responses (500 – 599)
 
 //Promise all
 //it will wait for all promises and if any one of promise is
-//reject it will reject the whole promise
+// reject it will reject the whole promise
 
 Promise.all([
   new Promise(function (resolve) {

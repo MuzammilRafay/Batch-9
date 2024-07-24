@@ -55,8 +55,17 @@ button.addEventListener("click", function (event) {
                 <li>Phone: ${singleData.phone}</li>
                 </ul>`;
       });
-      console.log(outputTemp, "outputTemp");
       output.innerHTML = outputTemp;
+
+      // output.innerHTML = "";
+      // data?.forEach((singleData) => {
+      //   const ulElement = document.createElement("ul");
+      //   ulElement.innerHTML = `<li>Id: ${singleData.id}</li>
+      //            <li>Name: ${singleData.name}</li>
+      //            <li>Company: ${singleData.company}</li>
+      //           <li>Phone: ${singleData.phone}</li>`;
+      //   output.append(ulElement);
+      // });
     })
     .catch(console.error);
 });
