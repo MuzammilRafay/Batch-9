@@ -4,7 +4,9 @@ const selectLoader = document.querySelector(".loader-container");
 const editTitleInputField = document.querySelector("#edit_post_title");
 const editBodyInputField = document.querySelector("#edit_post_body");
 const editPostIdHidden = document.querySelector("#edit_post_id");
-
+const createPostForm = document.querySelector("#create-post-form");
+const createPostTitle = document.querySelector("#post_title");
+const createPostBody = document.querySelector("#post_body");
 const getPosts = () => {
   selectLoader.style.display = "flex";
   fetch(apiBaseUrl)
@@ -117,6 +119,40 @@ editForm.addEventListener("submit", function (event) {
     .catch((error) => console.error(error));
 });
 
+createPostForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  console.log("create form is working");
+  const postInputTitleValue = createPostTitle.value;
+  const postInputBodyValue = createPostBody.value;
+
+  if (!postInputTitleValue || !postInputBodyValue) {
+    alert("please fill the input fields!");
+    return;
+  }
+
+  const body = {
+    title: postInputTitleValue,
+    body: postInputBodyValue,
+  };
+  selectLoader.style.display = "flex";
+  fetch(apiBaseUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(body),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      getPosts();
+      createPostTitle.value = "";
+      createPostBody.value = "";
+      $("#create-post").modal("hide");
+      selectLoader.style.display = "none";
+    })
+    .catch((error) => console.error(error));
+});
+
 /*  
 Rest Api Pattern
 
@@ -129,5 +165,12 @@ POST	  /posts              (create post)
 PUT	    /posts/1            (update specific post with all data like title,body)
 PATCH	  /posts/1            (update specific post partially with some data like only title or body)
 DELETE  /posts/1            (delete post by id)
+
+
+
+primitive vs referenace type ?
+var,let const ?
+template literal ?
+spread operator ?
 
 */
