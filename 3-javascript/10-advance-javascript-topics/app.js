@@ -180,3 +180,123 @@ const vehicleOne = {
 
 // const { brand, model, type:modelType } = vehicleOne;
 const { brand, model, type } = vehicleOne;
+
+//Array Methods
+const products = [
+  {
+    id: 1,
+    name: "Product One",
+    price: 100,
+  },
+  {
+    id: 2,
+    name: "Product Two",
+    price: 200,
+  },
+  {
+    id: 3,
+    name: "Product Three",
+    price: 300,
+  },
+  {
+    id: 4,
+    name: "Product Four",
+    price: 400,
+  },
+];
+
+console.log(products, "products");
+
+console.time();
+products.forEach(function (singleProduct) {
+  console.log(singleProduct);
+});
+console.timeEnd();
+
+//foreach method will take default: 1.29882812 ms
+
+/*
+
+-Loop Methods
+map
+filter
+forEach
+some
+every
+find
+findIndex
+reduce
+
+-Array Changes method
+push
+pop
+unshift
+slice
+shift
+*/
+
+//map will return new array according to the return value
+
+let productNewArray;
+console.time();
+productNewArray = products.map((single) => {
+  // return single.id;
+  return {
+    productNameAAAA: single.name,
+  };
+});
+console.timeEnd();
+
+console.log(productNewArray, "productNewArray");
+
+//wrong way to create new arrays
+// let productNewArray2 = [];
+// products.forEach((single) => {
+//   productNewArray2.push({
+//     productNameAAAA: single.name,
+//   })
+// });
+
+//Filter
+
+//it will return the array depend on your condition
+
+productNewArray = products.filter((singleProduct) => singleProduct.price > 100);
+
+//it will return single object or single value
+
+productNewArray = products.find((singleProduct) => singleProduct.id === 1);
+productNewArray = products.findIndex((singleProduct) => singleProduct.id === 1);
+
+//we can use array chaining methods
+
+productNewArray = products
+  .map((singleProduct) => singleProduct.id) //[1,2,3,4]
+  .find((singleProduct) => singleProduct === 1); // 1
+console.log(productNewArray, products, "product new array");
+
+//array every (return boolean)
+//agar sab ki condition true hein to true return karta hai
+
+productNewArray = products.every((singleProduct) => singleProduct.price > 0);
+
+//agar ksi ek ki  condition true hein to true return karta hai warna false
+productNewArray = products.some((singleProduct) => singleProduct.price > 200);
+
+//reduce
+// 1st param me condition return hogi jo jama karna hai
+//2nd me ap doge accumulator = jama karne wala
+
+//initial value 0 hai
+
+// productNewArray = products.reduce((totalValueInLoop, singleProduct) => {
+//   // console.log(jamaKarneWala, singleProduct.price, "jamaKarneWala");
+//   return totalValueInLoop + singleProduct.price;
+// }, (intialTotal = 0));
+
+productNewArray = products.reduce(
+  (totalValueInLoop, singleProduct) => totalValueInLoop + singleProduct.price,
+  0
+);
+
+console.log(productNewArray, "productNewArray");

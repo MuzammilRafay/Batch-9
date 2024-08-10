@@ -1,0 +1,46 @@
+What is React js ?
+
+react js is library/framework of javascript 
+
+examples:
+facebook, netflix, instagram
+
+it is created by facebook
+
+feature javascript
+
+single page application = SPA
+(without refresh url will change)
+
+
+we have top libraries like:
+1-React js (community strong / we already have large scale applications in reactjs / mobile application development (android / ios))
+2-Vue js  (light weight / easy to learn )
+3-Angular js (not easy to learn)
+4-Svelte js
+
+
+we can create mobile application after learning the react js
+
+react js is popuplar
+
+
+
+react js is using jsx (jsx = javascript xml)
+
+react js using babel js
+
+https://babeljs.io/repl#?browsers=defaults%2C%20not%20ie%2011%2C%20not%20ie_mob%2011&build=&builtIns=false&corejs=3.21&spec=false&loose=false&code_lz=GYVwdgxgLglg9mABACQKYBt1wBQEpEDeAUIqWaQE6pQgVIA8AFgIyIToCGAzlwLwBEjDmAC0AIyEx-iGABMBAdzgUA1jDABzfgD40mOIgDqy9LICE9APQttAbhLlEAXyA&debug=false&forceAllTransforms=false&shippedProposals=false&circleciRepo=&evaluate=false&fileSize=false&timeTravel=false&sourceType=module&lineWrap=true&presets=env%2Creact%2Cstage-2&prettier=false&targets=&version=7.20.6&externalPlugins=&assumptions=%7B%7D
+
+
+webpack is bundler
+(apk pas bohat sari javascript ki files hongi unko 1 2 files me convert kardega)
+
+
+we have to download node js from it's website
+
+https://nodejs/org/en
+
+npm = node js package manager
+
+npx create-react-app your-react-app-name
