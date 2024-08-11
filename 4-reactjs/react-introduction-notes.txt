@@ -39,8 +39,32 @@ webpack is bundler
 
 we have to download node js from it's website
 
-https://nodejs/org/en
+
+https://nodejs.org/en
 
 npm = node js package manager
 
 npx create-react-app your-react-app-name
+
+https://git-scm.com/downloads
+
+npx create-react-app 1-introduction-react-project
+
+go this project directory
+
+open terminal then run this command
+
+npm run start or npm start
+
+
+
+React Files
+Get familiar with the files in your React project.
+
+package.json - The main file that defines the dependencies/packages and other settings for your project.
+node_modules - Source code for depencies. Do not touch.
+public - The directory where your static files are stored.
+src/index.js - Main entrypoint to bootstrap the app.
+src/App.js - The root component of the app.
+src/App.spec.js - Unit tests for the app.
+src/*.css - Styles for the app.
