@@ -68,3 +68,18 @@ src/index.js - Main entrypoint to bootstrap the app.
 src/App.js - The root component of the app.
 src/App.spec.js - Unit tests for the app.
 src/*.css - Styles for the app.
+
+
+component re-render/refresh states
+
+1-state change
+2-prop change
+
+
+
+what is component in react js ?
+
+
+function useStateMuzammil(){
+    return [get,set];
+}
