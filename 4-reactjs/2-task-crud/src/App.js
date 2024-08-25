@@ -1,8 +1,10 @@
+import { useState } from "react";
 import "./App.css";
 import TaskForm from "./components/TaskForm/TaskForm";
 import TaskListing from "./components/TaskListing/TaskListing";
 
 function App() {
+  const [allTasks, setAllTasks] = useState([]);
   return (
     <div className="container">
       <div className="row">
@@ -10,9 +12,9 @@ function App() {
           <div id="main" className="card">
             <div className="card-content">
               <span className="card-title">Task List</span>
-              <TaskForm />
+              <TaskForm allTasks={allTasks} setAllTasks={setAllTasks} />
             </div>
-            <TaskListing />
+            <TaskListing allTasks={allTasks} />
           </div>
         </div>
       </div>
