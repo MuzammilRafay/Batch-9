@@ -14,7 +14,7 @@ function App() {
               <span className="card-title">Task List</span>
               <TaskForm allTasks={allTasks} setAllTasks={setAllTasks} />
             </div>
-            <TaskListing allTasks={allTasks} />
+            <TaskListing allTasks={allTasks} setAllTasks={setAllTasks} />
           </div>
         </div>
       </div>

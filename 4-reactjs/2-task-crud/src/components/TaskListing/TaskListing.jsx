@@ -2,7 +2,12 @@
 import React from "react";
 
 const TaskListing = (props) => {
-  const { allTasks } = props;
+  const { allTasks, setAllTasks } = props;
+
+  const clearTaskHandler = (event) => {
+    event.preventDefault();
+    setAllTasks([]);
+  };
   return (
     <div className="card-action">
       <h5 id="task-title">Tasks</h5>
@@ -11,14 +16,28 @@ const TaskListing = (props) => {
         <label>Filter Task</label>
       </div>
       <ul className="collection">
-        {/* <li className="collection-item">
-          List Item
-          <a href="#" className="delete-item secondary-content">
-            <i className="fa fa-remove"></i>
-          </a>
-        </li> */}
+        {allTasks.map((singleTask, index) => {
+          return (
+            <li className="collection-item">
+              {singleTask}
+              <a
+                href="#"
+                className="delete-item secondary-content"
+                onClick={(e) => {
+                  e.preventDefault();
+
+                  const copyTask = [...allTasks];
+                  copyTask.splice(index, 1);
+                  setAllTasks(copyTask);
+                }}
+              >
+                <i className="fa fa-remove"></i>
+              </a>
+            </li>
+          );
+        })}
       </ul>
-      <a href="#" className="clear-tasks btn black">
+      <a href="#" className="clear-tasks btn black" onClick={clearTaskHandler}>
         Clear Tasks
       </a>
     </div>
