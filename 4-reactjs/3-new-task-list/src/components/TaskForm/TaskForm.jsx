@@ -17,10 +17,10 @@ const TaskForm = (props) => {
       return;
     }
 
-    const taskListTemp = [...taskList];
-    taskListTemp.push(taskInput);
+    const taskListTemp = [...taskList]; //array copy (reference issue)
+    taskListTemp.push(taskInput); //push means = add new value in the existing array
 
-    console.log(taskListTemp, "taskListTemp");
+    // console.log(taskListTemp, "taskListTemp");
 
     saveArrayInLocalStorage(taskListTemp);
     setTaskList(taskListTemp);
