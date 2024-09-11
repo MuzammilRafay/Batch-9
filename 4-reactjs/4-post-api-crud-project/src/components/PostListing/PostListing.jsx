@@ -3,27 +3,11 @@ import React, { useEffect, useState } from "react";
 import { BASE_API_URL } from "../../constant";
 import Loader from "../Loader/Loader";
 
-function PostListing() {
-  const [postData, setPostData] = useState(null);
-  const [loading, setLoading] = useState(false);
+function PostListing({ loading, getPosts, postData, setLoading }) {
   useEffect(() => {
     //first load
     getPosts();
   }, []);
-
-  const getPosts = () => {
-    setLoading(true);
-    fetch(`${BASE_API_URL}/posts`)
-      .then((res) => res.json())
-      .then((data) => {
-        setPostData(data?.results);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error(error);
-        setLoading(false);
-      });
-  };
 
   const deletePostHandler = (postId) => {
     if (window.confirm("Are you sure?")) {
