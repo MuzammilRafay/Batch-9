@@ -2,19 +2,30 @@
 import React, { useEffect, useState } from "react";
 import { BASE_API_URL } from "../../constant";
 import Loader from "../Loader/Loader";
+import { PostServices } from "../../services/PostService";
 
 function PostListing({ loading, getPosts, postData, setLoading }) {
+  const [editPostData, setEditPostData] = useState(null);
+
   useEffect(() => {
     //first load
     getPosts();
   }, []);
 
+  // useEffect(() => {
+  //   //is state variable k change par
+
+  // }, [state,prop]);
+
+  // har re render par effect call hoga (like state or prop change par)
+  // useEffect(() => {
+
+  // })
+
   const deletePostHandler = (postId) => {
     if (window.confirm("Are you sure?")) {
       setLoading(true);
-      fetch(`${BASE_API_URL}/posts/${postId}`, {
-        method: "DELETE",
-      })
+      PostServices.deletePostById(postId)
         .then(() => {
           setLoading(false);
           getPosts();
@@ -24,6 +35,25 @@ function PostListing({ loading, getPosts, postData, setLoading }) {
           setLoading(false);
         });
     }
+  };
+
+  const editPostHandler = (e, singelPostData) => {
+    e.preventDefault();
+    console.log({ singelPostData }, "postId");
+
+    //1. get post by id from api endpoint / singlePostData pura param me pass karado
+    //
+    setLoading(true);
+
+    PostServices.editPostDataById(singelPostData?.id)
+      .then((data) => {
+        setLoading(false);
+        setEditPostData(data?.results);
+        window.$("#edit-post").modal("show");
+      })
+      .catch((error) => {
+        setLoading(false);
+      });
   };
   return (
     <>
@@ -63,7 +93,11 @@ function PostListing({ loading, getPosts, postData, setLoading }) {
                 <td>{singlePostData?.post_category_id}</td>
                 <td>{singlePostData?.post_title}</td>
                 <td>
-                  <a className="btn btn-primary edit-btn" href="#edit-post">
+                  <a
+                    className="btn btn-primary edit-btn"
+                    href="#edit-post"
+                    onClick={(e) => editPostHandler(e, singlePostData)}
+                  >
                     Edit
                   </a>
                 </td>

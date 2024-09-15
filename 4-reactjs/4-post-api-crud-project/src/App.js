@@ -4,6 +4,7 @@ import CreatePost from "./components/CreatePost/CreatePost";
 import EditPost from "./components/EditPost/EditPost";
 import PostListing from "./components/PostListing/PostListing";
 import { BASE_API_URL } from "./constant";
+import { PostServices } from "./services/PostService";
 
 function App() {
   const [postData, setPostData] = useState(null);
@@ -11,8 +12,7 @@ function App() {
 
   const getPosts = () => {
     setLoading(true);
-    fetch(`${BASE_API_URL}/posts`)
-      .then((res) => res.json())
+    PostServices.getPosts()
       .then((data) => {
         setPostData(data?.results);
         setLoading(false);

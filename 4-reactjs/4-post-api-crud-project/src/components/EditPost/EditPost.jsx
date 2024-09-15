@@ -1,7 +1,29 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
-import React from "react";
+import React, { useState } from "react";
+import useCommonInputFields from "../../hooks/useCommonInputFields";
+import { PostServices } from "../../services/PostService";
 
 function EditPost() {
+  const {
+    titleInputField,
+    commonInputFields,
+    postTitleOnChange,
+    onChangeCommonInputFieldHandler,
+  } = useCommonInputFields();
+
+  const [loading, setLoading] = useState(false);
+
+  const editPostSubmitHandler = (e) => {
+    e.preventDefault();
+
+    const payload = {
+      titleInputField,
+      ...commonInputFields,
+    };
+
+    // PostServices.updatePost(postId, payload).then((data) => {});
+  };
+
   return (
     <>
       {/* <!-- EDIT POST POPUP --> */}
@@ -17,30 +39,53 @@ function EditPost() {
               >
                 &times;
               </button>
-              <h4 className="modal-title">Edit Post</h4>
+              <h4 className="modal-title">Update Post</h4>
             </div>
             <div className="modal-body">
-              <form action="" method="POST" role="form" id="edit-post-form">
-                <input type="hidden" name="post_id" id="edit_post_id" />
+              <form
+                action=""
+                method="POST"
+                role="form"
+                id="create-post-form"
+                onSubmit={editPostSubmitHandler}
+              >
                 <div className="form-group">
-                  <label>Title</label>
+                  <label>Post Title </label>
                   <input
                     type="text"
                     className="form-control"
-                    id="edit_post_title"
+                    id="post_title"
                     placeholder="Title"
+                    name="post_title"
+                    onChange={postTitleOnChange}
+                    value={titleInputField}
                   />
                 </div>
 
                 <div className="form-group">
-                  <label>Body</label>
+                  <label>Post Author</label>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="post_author"
+                    placeholder="Post Author"
+                    name="post_author"
+                    onChange={onChangeCommonInputFieldHandler}
+                    value={commonInputFields?.post_author}
+                  />
+                </div>
+
+                <div className="form-group">
+                  <label>Post Content</label>
                   <textarea
-                    name=""
-                    id="edit_post_body"
+                    id="post_content"
                     cols="30"
                     rows="10"
-                    placeholder="Body"
+                    placeholder="Post Content"
                     className="form-control"
+                    onChange={onChangeCommonInputFieldHandler}
+                    name="post_content"
+                    value={commonInputFields?.post_content}
                   ></textarea>
                 </div>
 

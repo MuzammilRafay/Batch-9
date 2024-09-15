@@ -2,27 +2,21 @@
 import React, { useState } from "react";
 import Loader from "../Loader/Loader";
 import { BASE_API_URL } from "../../constant";
+import { PostServices } from "../../services/PostService";
+import useCommonInputFields from "../../hooks/useCommonInputFields";
 
 function CreatePost({ getPosts }) {
-  const [titleInputField, setTitleInputField] = useState("");
+  const {
+    titleInputField,
+    commonInputFields,
+    postTitleOnChange,
+    onChangeCommonInputFieldHandler,
+    setTitleInputField,
+    setCommonInputFields,
+  } = useCommonInputFields();
+
   const [loading, setLoading] = useState(false);
-  const [commonInputFields, setCommonInputFields] = useState({});
 
-  const postTitleOnChange = (e) => {
-    e.preventDefault();
-    setTitleInputField(e.target.value);
-  };
-
-  const onChangeCommonInputFieldHandler = (event) => {
-    event.preventDefault();
-
-    // console.log(event.target.name); // name ="post_author"
-
-    setCommonInputFields({
-      ...commonInputFields, //purani values ko le ao
-      [event.target.name]: event.target.value,
-    });
-  };
   const createPostSubmitHandler = (e) => {
     e.preventDefault();
     console.log("form submitting");
@@ -37,14 +31,7 @@ function CreatePost({ getPosts }) {
       post_category_id: 259,
     };
 
-    fetch(`${BASE_API_URL}/posts`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    })
-      .then((response) => response.json())
+    PostServices.createPost(payload)
       .then((data) => {
         setLoading(false);
         setTitleInputField("");

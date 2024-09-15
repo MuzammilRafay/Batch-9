@@ -74,6 +74,7 @@ component re-render/refresh states
 
 1-state change
 2-prop change
+3-parent component re-render hone se children re-render hota
 
 
 
