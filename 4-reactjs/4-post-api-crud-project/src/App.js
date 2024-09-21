@@ -9,6 +9,7 @@ import { PostServices } from "./services/PostService";
 function App() {
   const [postData, setPostData] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [editPostData, setEditPostData] = useState(null);
 
   const getPosts = () => {
     setLoading(true);
@@ -27,12 +28,13 @@ function App() {
       <div className="container">
         <h1>Posts</h1>
         <CreatePost getPosts={getPosts} />
-        <EditPost />
+        <EditPost editPostData={editPostData} setLoading={setLoading}   getPosts={getPosts} />
         <PostListing
           postData={postData}
           loading={loading}
           getPosts={getPosts}
           setLoading={setLoading}
+          setEditPostData={setEditPostData}
         />
       </div>
     </>

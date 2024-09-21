@@ -4,9 +4,13 @@ import { BASE_API_URL } from "../../constant";
 import Loader from "../Loader/Loader";
 import { PostServices } from "../../services/PostService";
 
-function PostListing({ loading, getPosts, postData, setLoading }) {
-  const [editPostData, setEditPostData] = useState(null);
-
+function PostListing({
+  loading,
+  getPosts,
+  postData,
+  setLoading,
+  setEditPostData,
+}) {
   useEffect(() => {
     //first load
     getPosts();

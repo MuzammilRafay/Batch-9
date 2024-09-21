@@ -1,29 +1,44 @@
 /* eslint-disable jsx-a11y/no-redundant-roles */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import useCommonInputFields from "../../hooks/useCommonInputFields";
 import { PostServices } from "../../services/PostService";
 
-function EditPost() {
+function EditPost({ editPostData, setLoading, getPosts }) {
   const {
-    titleInputField,
     commonInputFields,
-    postTitleOnChange,
     onChangeCommonInputFieldHandler,
+    setCommonInputFields,
   } = useCommonInputFields();
-
-  const [loading, setLoading] = useState(false);
 
   const editPostSubmitHandler = (e) => {
     e.preventDefault();
-
-    const payload = {
-      titleInputField,
-      ...commonInputFields,
-    };
-
-    // PostServices.updatePost(postId, payload).then((data) => {});
+    setLoading(true);
+    PostServices.updatePost(commonInputFields?.id, commonInputFields)
+      .then((data) => {
+        setCommonInputFields({});
+        window.$("#edit-post").modal("hide");
+        setLoading(false);
+        getPosts();
+      })
+      .catch((error) => {
+        console.error(error);
+        setLoading(false);
+      });
   };
 
+  //jab editPostData me change ayee to phr commonInputFields me post_title,post_author,post_content save kardoge
+  useEffect(() => {
+    if (editPostData) {
+      const tempCommonInputFields = {
+        ...editPostData, //purana wala editPostData sara lelo
+        post_title: editPostData?.post_title,
+        post_author: editPostData?.post_author,
+        post_content: editPostData?.post_content,
+      };
+
+      setCommonInputFields(tempCommonInputFields);
+    }
+  }, [editPostData]);
   return (
     <>
       {/* <!-- EDIT POST POPUP --> */}
@@ -57,8 +72,8 @@ function EditPost() {
                     id="post_title"
                     placeholder="Title"
                     name="post_title"
-                    onChange={postTitleOnChange}
-                    value={titleInputField}
+                    onChange={onChangeCommonInputFieldHandler}
+                    value={commonInputFields?.post_title}
                   />
                 </div>
 
