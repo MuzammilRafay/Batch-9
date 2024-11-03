@@ -11,7 +11,7 @@ function PostDetail() {
 
   useEffect(() => {
     if (postId) {
-      setLoader(false);
+      setLoader(true);
       PostApiService.getPostById(postId)
         .then((data) => {
           setSinglePostData(data?.results);
@@ -78,7 +78,7 @@ function PostDetail() {
           <div className="form-group">
             <textarea className="form-control" rows="3"></textarea>
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary" disabled="disabled">
             Submit
           </button>
         </form>
@@ -89,7 +89,7 @@ function PostDetail() {
       {/* <!-- Posted Comments --> */}
 
       {/* <!-- Comment --> */}
-      <div className="media">
+      {/* <div className="media">
         <a className="pull-left" href="#">
           <img
             className="media-object"
@@ -107,49 +107,7 @@ function PostDetail() {
           vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
           vulputate fringilla. Donec lacinia congue felis in faucibus.
         </div>
-      </div>
-
-      {/* <!-- Comment --> */}
-      <div className="media">
-        <a className="pull-left" href="#">
-          <img
-            className="media-object"
-            src="http://placehold.it/64x64"
-            alt=""
-          />
-        </a>
-        <div className="media-body">
-          <h4 className="media-heading">
-            Start Bootstrap
-            <small>August 25, 2014 at 9:30 PM</small>
-          </h4>
-          Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-          scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum in
-          vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi
-          vulputate fringilla. Donec lacinia congue felis in faucibus.
-          {/* <!-- Nested Comment --> */}
-          <div className="media">
-            <a className="pull-left" href="#">
-              <img
-                className="media-object"
-                src="http://placehold.it/64x64"
-                alt=""
-              />
-            </a>
-            <div className="media-body">
-              <h4 className="media-heading">
-                Nested Start Bootstrap
-                <small>August 25, 2014 at 9:30 PM</small>
-              </h4>
-              Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-              scelerisque ante sollicitudin commodo. Cras purus odio, vestibulum
-              in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac
-              nisi vulputate fringilla. Donec lacinia congue felis in faucibus.
-            </div>
-          </div>
-          {/* <!-- End Nested Comment --> */}
-        </div>
-      </div>
+      </div> */}
     </>
   );
 }

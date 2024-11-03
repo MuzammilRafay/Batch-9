@@ -1,9 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./../../frontent-files/css/bootstrap.min.css";
 import "./../../frontent-files/css/blog-home.css";
 import { Link, Outlet } from "react-router-dom";
+import { CategoryApiService } from "../../services/categoryService";
 
 function FrontendLayout() {
+  const [categoryData, setCategoryData] = useState(null);
+  const [loader, setLoader] = useState(false);
+  useEffect(() => {
+    getCategories();
+  }, []);
+
+  const getCategories = () => {
+    setLoader(true);
+    CategoryApiService.getCategories()
+      .then((data) => setCategoryData(data?.results))
+      .catch(console.error)
+      .finally(() => setLoader(false));
+  };
+
+  const firstTenCategories = Array.from([...categoryData]).splice(0, 10);
+
   return (
     <>
       {/* <!-- Navigation --> */}
@@ -32,6 +49,11 @@ function FrontendLayout() {
             id="bs-example-navbar-collapse-1"
           >
             <ul className="nav navbar-nav">
+              {firstTenCategories?.map((singleCategory) => (
+                <li>
+                  <a href="#">{singleCategory?.cat_title}</a>
+                </li>
+              ))}
               <li>
                 <a href="#">Login</a>
               </li>
@@ -49,7 +71,13 @@ function FrontendLayout() {
       <div className="container">
         <div className="row">
           {/* <!-- Blog Entries Column --> */}
-          <div className="col-md-8">
+          <div
+            className="col-md-8"
+            style={{
+              maxHeight: "80vh",
+              overflowY: "auto",
+            }}
+          >
             <Outlet />
           </div>
 
@@ -73,52 +101,20 @@ function FrontendLayout() {
             <div className="well">
               <h4>Blog Categories</h4>
               <div className="row">
-                <div className="col-lg-6">
+                <div className="col-lg-12">
                   <ul className="list-unstyled">
-                    <li>
-                      <a href="#">Category Name</a>
-                    </li>
-                    <li>
-                      <a href="#">Category Name</a>
-                    </li>
-                    <li>
-                      <a href="#">Category Name</a>
-                    </li>
-                    <li>
-                      <a href="#">Category Name</a>
-                    </li>
+                    {categoryData?.length > 0 &&
+                      firstTenCategories?.map((singleCategory) => (
+                        <li>
+                          <a href="#">{singleCategory?.cat_title}</a>
+                        </li>
+                      ))}
                   </ul>
                 </div>
-                {/* <!-- /.col-lg-6 --> */}
-                <div className="col-lg-6">
-                  <ul className="list-unstyled">
-                    <li>
-                      <a href="#">Category Name</a>
-                    </li>
-                    <li>
-                      <a href="#">Category Name</a>
-                    </li>
-                    <li>
-                      <a href="#">Category Name</a>
-                    </li>
-                    <li>
-                      <a href="#">Category Name</a>
-                    </li>
-                  </ul>
-                </div>
+
                 {/* <!-- /.col-lg-6 --> */}
               </div>
               {/* <!-- /.row --> */}
-            </div>
-
-            {/* <!-- Side Widget Well --> */}
-            <div className="well">
-              <h4>Side Widget Well</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Inventore, perspiciatis adipisci accusamus laudantium odit
-                aliquam repellat tempore quos aspernatur vero.
-              </p>
             </div>
           </div>
         </div>
@@ -130,7 +126,7 @@ function FrontendLayout() {
         <footer>
           <div className="row">
             <div className="col-lg-12">
-              <p>Copyright &copy; Your Website 2014</p>
+              <p>Copyright &copy; Your Website 2024</p>
             </div>
             {/* <!-- /.col-lg-12 --> */}
           </div>
