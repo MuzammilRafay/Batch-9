@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./../../frontent-files/css/bootstrap.min.css";
 import "./../../frontent-files/css/blog-home.css";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useNavigate } from "react-router-dom";
 import { CategoryApiService } from "../../services/categoryService";
 
 function FrontendLayout() {
-  const [categoryData, setCategoryData] = useState(null);
+  const navigate = useNavigate();
+  const [categoryData, setCategoryData] = useState([]);
+  const [searchInput, setSearchInput] = useState("");
   const [loader, setLoader] = useState(false);
   useEffect(() => {
     getCategories();
@@ -19,7 +21,11 @@ function FrontendLayout() {
       .finally(() => setLoader(false));
   };
 
-  const firstTenCategories = Array.from([...categoryData]).splice(0, 10);
+  const firstTenCategories = Array.from([...categoryData]).splice(0, 5);
+
+  const searchSubmitHandler = () => {
+    navigate(`/search/${searchInput}`);
+  };
 
   return (
     <>
@@ -51,7 +57,9 @@ function FrontendLayout() {
             <ul className="nav navbar-nav">
               {firstTenCategories?.map((singleCategory) => (
                 <li>
-                  <a href="#">{singleCategory?.cat_title}</a>
+                  <Link to={`/category/${singleCategory?.cat_id}`}>
+                    {singleCategory?.cat_title}
+                  </Link>
                 </li>
               ))}
               <li>
@@ -86,14 +94,21 @@ function FrontendLayout() {
             {/* <!-- Blog Search Well --> */}
             <div className="well">
               <h4>Blog Search</h4>
-              <div className="input-group">
-                <input type="text" className="form-control" />
-                <span className="input-group-btn">
-                  <button className="btn btn-default" type="button">
-                    <span className="glyphicon glyphicon-search"></span>
-                  </button>
-                </span>
-              </div>
+              <form onSubmit={searchSubmitHandler}>
+                <div className="input-group">
+                  <input
+                    type="text"
+                    className="form-control"
+                    onChange={(e) => setSearchInput(e.target.value)}
+                    value={searchInput}
+                  />
+                  <span className="input-group-btn">
+                    <button className="btn btn-default" type="submit">
+                      <span className="glyphicon glyphicon-search"></span>
+                    </button>
+                  </span>
+                </div>
+              </form>
               {/* <!-- /.input-group --> */}
             </div>
 
@@ -106,7 +121,9 @@ function FrontendLayout() {
                     {categoryData?.length > 0 &&
                       firstTenCategories?.map((singleCategory) => (
                         <li>
-                          <a href="#">{singleCategory?.cat_title}</a>
+                          <Link to={`/category/${singleCategory?.cat_id}`}>
+                            {singleCategory?.cat_title}
+                          </Link>
                         </li>
                       ))}
                   </ul>
