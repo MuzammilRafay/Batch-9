@@ -23,7 +23,8 @@ function FrontendLayout() {
 
   const firstTenCategories = Array.from([...categoryData]).splice(0, 5);
 
-  const searchSubmitHandler = () => {
+  const searchSubmitHandler = (e) => {
+    e.preventDefault();
     navigate(`/search/${searchInput}`);
   };
 
@@ -56,17 +57,17 @@ function FrontendLayout() {
           >
             <ul className="nav navbar-nav">
               {firstTenCategories?.map((singleCategory) => (
-                <li>
+                <li key={singleCategory?.cat_id}>
                   <Link to={`/category/${singleCategory?.cat_id}`}>
                     {singleCategory?.cat_title}
                   </Link>
                 </li>
               ))}
               <li>
-                <a href="#">Login</a>
+                <Link to="#">Login</Link>
               </li>
               <li>
-                <a href="#">Register</a>
+                <Link to="/register">Register</Link>
               </li>
             </ul>
           </div>
@@ -120,7 +121,7 @@ function FrontendLayout() {
                   <ul className="list-unstyled">
                     {categoryData?.length > 0 &&
                       firstTenCategories?.map((singleCategory) => (
-                        <li>
+                        <li key={singleCategory?.cat_id}>
                           <Link to={`/category/${singleCategory?.cat_id}`}>
                             {singleCategory?.cat_title}
                           </Link>

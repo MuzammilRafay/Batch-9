@@ -2,26 +2,27 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CategoryApiService } from "../services/categoryService";
 import SinglePost from "../components/SinglePost/SinglePost";
+import { PostApiService } from "../services/PostApiService";
 
-function CategoryDetail() {
+function SearchPost() {
   const [posts, setPosts] = useState([]);
-  const [categoryData, setCategoryData] = useState(null);
-  const { categoryId } = useParams();
+  const { searchValue } = useParams();
 
   useEffect(() => {
-    if (categoryId) {
-      CategoryApiService.getCategoryById(categoryId)
+    if (searchValue) {
+      PostApiService.searchPostApi({
+        query_custom: searchValue,
+      })
         .then((data) => {
-          setPosts(data?.results?.posts);
-          setCategoryData(data?.results);
+          setPosts(data?.results);
         })
         .catch(console.error);
     }
-  }, [categoryId]);
+  }, [searchValue]);
 
   return (
     <div>
-      <h2>Category : {categoryData?.cat_title}</h2>
+      <h2>Search : {searchValue}</h2>
 
       {posts?.length > 0 &&
         posts?.map((singlePost) => (
@@ -31,4 +32,4 @@ function CategoryDetail() {
   );
 }
 
-export default CategoryDetail;
+export default SearchPost;

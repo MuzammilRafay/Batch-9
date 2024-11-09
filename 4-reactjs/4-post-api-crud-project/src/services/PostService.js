@@ -11,6 +11,7 @@ const POST_API_ENDPOINTS = {
 const getPosts = () => {
   return fetch(POST_API_ENDPOINTS.GET_POSTS).then((res) => res.json());
 };
+
 const createPost = (payload) => {
   return fetch(POST_API_ENDPOINTS.CREATE_POST, {
     method: "POST",

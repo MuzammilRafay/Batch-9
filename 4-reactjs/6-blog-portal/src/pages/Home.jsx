@@ -33,7 +33,9 @@ function Home() {
 
       {postData?.length > 0 &&
         postData?.map((singlePost) => {
-          return <SinglePost singlePost={singlePost} />;
+          return (
+            <SinglePost singlePost={singlePost} key={singlePost?.post_id} />
+          );
         })}
     </>
   );
