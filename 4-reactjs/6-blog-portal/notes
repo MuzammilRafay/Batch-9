@@ -1,1 +1,11 @@
 npm install react-router-dom
+
+
+
+jwt token 
+
+
+jwt stands for JSON WEB TOKEN
+
+
+user is logged in or not logged we can verify with jwt token

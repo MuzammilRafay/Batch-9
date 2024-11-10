@@ -13,9 +13,8 @@ function Register() {
   const onFinish = (values) => {
     setLoading(true);
     UserApiService.registerUser(values)
-      .then((data) => {
-        console.log(data);
-        form.resetFields();
+      .then(() => {
+        form.resetFields(); // empty form input fields
         messageApi.open({
           type: "success",
           content: "User is registered successfully.",
@@ -107,10 +106,10 @@ function Register() {
               required: true,
               message: "Please input your confirm password",
             },
-            {
-              pattern: PASSWORD_REGEX,
-              message: PASSWORD_REGEX_MESSAGE,
-            },
+            // {
+            //   pattern: PASSWORD_REGEX,
+            //   message: PASSWORD_REGEX_MESSAGE,
+            // },
 
             ({ getFieldValue }) => ({
               validator(_, value) {

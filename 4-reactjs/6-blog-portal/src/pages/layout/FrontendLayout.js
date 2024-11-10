@@ -3,6 +3,7 @@ import "./../../frontent-files/css/bootstrap.min.css";
 import "./../../frontent-files/css/blog-home.css";
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import { CategoryApiService } from "../../services/categoryService";
+import { AuthUtils } from "../../utils/AuthUtils";
 
 function FrontendLayout() {
   const navigate = useNavigate();
@@ -63,12 +64,34 @@ function FrontendLayout() {
                   </Link>
                 </li>
               ))}
-              <li>
-                <Link to="#">Login</Link>
-              </li>
-              <li>
-                <Link to="/register">Register</Link>
-              </li>
+
+              {AuthUtils.isUserIsLoggedIn() ? (
+                <>
+                  <li>
+                    <Link to="###">Dashboard</Link>
+                  </li>
+                  <li>
+                    <Link
+                      to="###"
+                      onClick={() => {
+                        AuthUtils.removeToken();
+                        window.location.href = "/";
+                      }}
+                    >
+                      Logout
+                    </Link>
+                  </li>
+                </>
+              ) : (
+                <>
+                  <li>
+                    <Link to="/login">Login</Link>
+                  </li>
+                  <li>
+                    <Link to="/register">Register</Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
           {/* <!-- /.navbar-collapse --> */}
