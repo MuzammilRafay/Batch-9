@@ -29,7 +29,7 @@ function Login() {
             content: "User is logged in successfully.",
           });
 
-          window.location.href = "/";
+          window.location.href = "/dashboard";
         }
       })
       .catch(console.error)

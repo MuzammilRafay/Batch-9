@@ -19,6 +19,7 @@ const saveUserName = (username) => {
 
 const removeToken = () => {
   localStorage.removeItem(TOKEN_NAME);
+  localStorage.removeItem(USER_NAME);
 };
 
 const isUserIsLoggedIn = () => {

@@ -7,6 +7,9 @@ import CategoryDetail from "./pages/CategoryDetail";
 import SearchPost from "./pages/SearchPost";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
+import AdminLayout from "./pages/admin/layout/AdminLayout";
+import Dashboard from "./pages/admin/Dashboard";
+import Categories from "./pages/admin/Categories";
 
 function App() {
   return (
@@ -19,6 +22,12 @@ function App() {
           <Route path="/search/:searchValue" element={<SearchPost />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+        </Route>
+
+        {/* ADMIN ROUTES */}
+        <Route element={<AdminLayout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/categories" element={<Categories />} />
         </Route>
       </Routes>
     </BrowserRouter>
