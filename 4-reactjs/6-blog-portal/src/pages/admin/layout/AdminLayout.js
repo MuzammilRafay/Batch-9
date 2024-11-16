@@ -45,7 +45,6 @@ const items = [
       <div
         onClick={() => {
           AuthUtils.removeToken();
-
           window.location.href = "/";
         }}
       >
