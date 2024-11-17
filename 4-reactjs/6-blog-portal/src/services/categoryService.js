@@ -10,7 +10,24 @@ const getCategoryById = (categoryId) => {
   );
 };
 
+const createCategory = (payload) => {
+  return fetch(`${apiDomainName}/categories`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  }).then((res) => res.json());
+};
+const deleteCategoryById = (catId) => {
+  return fetch(`${apiDomainName}/categories/${catId}`, {
+    method: "DELETE",
+  }).then((res) => res.json());
+};
+
 export const CategoryApiService = {
   getCategories,
   getCategoryById,
+  createCategory,
+  deleteCategoryById,
 };

@@ -1,11 +1,15 @@
-import { Button, Table } from "antd";
+import { Button, message, Modal, Table } from "antd";
+import { ExclamationCircleOutlined } from "@ant-design/icons";
 import React, { useEffect, useState } from "react";
 import { CategoryApiService } from "../../services/categoryService";
 import { HelperFunction } from "../../utils/helperFunction";
+import { useNavigate } from "react-router-dom";
 
 function Categories() {
+  const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [messageApi, contextHolder] = message.useMessage();
 
   useEffect(() => {
     //intial load
@@ -23,6 +27,32 @@ function Categories() {
       .finally(() => {
         setLoading(false);
       });
+  };
+
+  const categoryRequestFunction = (singleData) => {
+    const categoryId = singleData?.cat_id;
+    setLoading(true);
+    CategoryApiService.deleteCategoryById(categoryId)
+      .then(() => {
+        messageApi.open({
+          type: "success",
+          content: "Category is deleted successfully.",
+        });
+        getCategories();
+      })
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+
+  const handleCategoryDelete = (singleData) => {
+    Modal.confirm({
+      title: "Do you want to delete this category ?",
+      icon: <ExclamationCircleOutlined />,
+      onOk: () => {
+        categoryRequestFunction(singleData);
+      },
+    });
   };
 
   const columns = [
@@ -52,13 +82,14 @@ function Categories() {
     },
     {
       title: "Delete",
-      render: () => {
+      render: (singleData) => {
         return (
           <Button
             type="primary"
             style={{
               background: "red",
             }}
+            onClick={() => handleCategoryDelete(singleData)}
           >
             Delete
           </Button>
@@ -69,6 +100,7 @@ function Categories() {
 
   return (
     <div>
+      {contextHolder}
       <div
         style={{
           display: "flex",
@@ -79,7 +111,14 @@ function Categories() {
       >
         <h2 style={{ margin: 0 }}>Categories</h2>
 
-        <Button type="primary">Add Category</Button>
+        <Button
+          type="primary"
+          onClick={() => {
+            navigate("/categories/create");
+          }}
+        >
+          Add Category
+        </Button>
       </div>
       <Table
         dataSource={categories}
