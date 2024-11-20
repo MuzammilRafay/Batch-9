@@ -30,6 +30,10 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/categories" element={<Categories />} />
           <Route path="/categories/create" element={<CategoryAdd />} />
+          <Route
+            path="/categories/edit/:categoryId"
+            element={<CategoryAdd />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>

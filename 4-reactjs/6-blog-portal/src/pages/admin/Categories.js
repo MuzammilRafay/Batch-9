@@ -29,7 +29,7 @@ function Categories() {
       });
   };
 
-  const categoryRequestFunction = (singleData) => {
+  const categoryDeleteRequestFunction = (singleData) => {
     const categoryId = singleData?.cat_id;
     setLoading(true);
     CategoryApiService.deleteCategoryById(categoryId)
@@ -50,7 +50,7 @@ function Categories() {
       title: "Do you want to delete this category ?",
       icon: <ExclamationCircleOutlined />,
       onOk: () => {
-        categoryRequestFunction(singleData);
+        categoryDeleteRequestFunction(singleData);
       },
     });
   };
@@ -76,8 +76,17 @@ function Categories() {
     },
     {
       title: "Edit",
-      render: () => {
-        return <Button type="primary">Edit</Button>;
+      render: (singleData) => {
+        return (
+          <Button
+            type="primary"
+            onClick={() => {
+              navigate(`/categories/edit/${singleData?.cat_id}`);
+            }}
+          >
+            Edit
+          </Button>
+        );
       },
     },
     {
@@ -90,6 +99,7 @@ function Categories() {
               background: "red",
             }}
             onClick={() => handleCategoryDelete(singleData)}
+            loading={loading}
           >
             Delete
           </Button>
