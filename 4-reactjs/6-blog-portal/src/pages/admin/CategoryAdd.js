@@ -34,7 +34,8 @@ function CategoryAdd() {
         });
     }
   }, [isCategoryEditMode]);
-  const onFinish = (values) => {
+
+  const createCateoryFlow = (values) => {
     setLoading(true);
     CategoryApiService.createCategory(values)
       .then(() => {
@@ -51,6 +52,33 @@ function CategoryAdd() {
       .finally(() => {
         setLoading(false);
       });
+  };
+
+  const updateCategoryFlow = (values) => {
+    setLoading(true);
+    CategoryApiService.updateCategory(categoryId, values)
+      .then(() => {
+        messageApi.open({
+          type: "success",
+          content: "Category is updated successfully.",
+        });
+        setTimeout(() => {
+          navigate("/categories");
+        }, 2000);
+      })
+      .catch(console.error)
+      .finally(() => {
+        setLoading(false);
+      });
+  };
+  const onFinish = (values) => {
+    if (isCategoryEditMode) {
+      //edit flow
+      updateCategoryFlow(values);
+    } else {
+      //create category flow
+      createCateoryFlow(values);
+    }
   };
   return (
     <div>
@@ -73,12 +101,7 @@ function CategoryAdd() {
           <Input placeholder="Type your category title" />
         </Form.Item>
 
-        <Button
-          type="primary"
-          htmlType="submit"
-          loading={loading}
-          disabled={isCategoryEditMode}
-        >
+        <Button type="primary" htmlType="submit" loading={loading}>
           {isCategoryEditMode ? "Update" : "Add"} Category
         </Button>
       </Form>

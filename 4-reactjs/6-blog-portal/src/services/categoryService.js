@@ -19,6 +19,16 @@ const createCategory = (payload) => {
     body: JSON.stringify(payload),
   }).then((res) => res.json());
 };
+
+const updateCategory = (categoryId, payload) => {
+  return fetch(`${apiDomainName}/categories/${categoryId}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(payload),
+  }).then((res) => res.json());
+};
 const deleteCategoryById = (catId) => {
   return fetch(`${apiDomainName}/categories/${catId}`, {
     method: "DELETE",
@@ -30,4 +40,5 @@ export const CategoryApiService = {
   getCategoryById,
   createCategory,
   deleteCategoryById,
+  updateCategory,
 };
