@@ -26,7 +26,7 @@ const items = [
   {
     key: 3,
     icon: <UserOutlined />,
-    label: <Link to="#">Users</Link>,
+    label: <Link to="/users">Users</Link>,
   },
   {
     key: 4,

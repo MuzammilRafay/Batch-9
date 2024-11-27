@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { CategoryApiService } from "../../services/categoryService";
 import { HelperFunction } from "../../utils/helperFunction";
 import { useNavigate } from "react-router-dom";
+import CommonAdminListing from "../../components/CommonAdminListing/CommonAdminListing";
 
 function Categories() {
   const navigate = useNavigate();
@@ -109,35 +110,29 @@ function Categories() {
   ];
 
   return (
-    <div>
+    <>
       {contextHolder}
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          marginBottom: 10,
-        }}
-      >
-        <h2 style={{ margin: 0 }}>Categories</h2>
-
-        <Button
-          type="primary"
-          onClick={() => {
-            navigate("/categories/create");
-          }}
-        >
-          Add Category
-        </Button>
-      </div>
-      <Table
-        dataSource={categories}
-        columns={columns}
-        loading={loading}
-        bordered
+      <CommonAdminListing
+        btnRender={
+          <Button
+            type="primary"
+            onClick={() => {
+              navigate("/categories/create");
+            }}
+          >
+            Add Category
+          </Button>
+        }
+        tableRender={
+          <Table
+            dataSource={categories}
+            columns={columns}
+            loading={loading}
+            bordered
+          />
+        }
       />
-      ;
-    </div>
+    </>
   );
 }
 

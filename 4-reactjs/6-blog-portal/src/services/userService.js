@@ -20,7 +20,12 @@ const loginUser = (payload) => {
   }).then((res) => res.json());
 };
 
+const getUsers = () => {
+  return fetch(`${apiDomainName}/users`).then((res) => res.json());
+};
+
 export const UserApiService = {
   registerUser,
   loginUser,
+  getUsers,
 };

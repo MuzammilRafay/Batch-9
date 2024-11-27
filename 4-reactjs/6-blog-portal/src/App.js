@@ -11,6 +11,7 @@ import AdminLayout from "./pages/admin/layout/AdminLayout";
 import Dashboard from "./pages/admin/Dashboard";
 import Categories from "./pages/admin/Categories";
 import CategoryAdd from "./pages/admin/CategoryAdd";
+import Users from "./pages/admin/Users";
 
 function App() {
   return (
@@ -29,11 +30,14 @@ function App() {
         <Route element={<AdminLayout />}>
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/categories" element={<Categories />} />
+
           <Route path="/categories/create" element={<CategoryAdd />} />
           <Route
             path="/categories/edit/:categoryId"
             element={<CategoryAdd />}
           />
+
+          <Route path="/users" element={<Users />} />
         </Route>
       </Routes>
     </BrowserRouter>
