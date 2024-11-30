@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import { Button, Form, Input, message, Typography } from "antd";
 import { UserApiService } from "../services/userService";
+import { useNavigate } from "react-router-dom";
 const PASSWORD_REGEX =
   /^(?=.*[A-Za-z])(?=.*\d)(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,}$/;
 const PASSWORD_REGEX_MESSAGE =
   "Password should be contains at least one alphabet and contains at least one digit and is at least 8 characters long and should have special character.";
 
-function Register() {
+function Register({ isUserModule = false }) {
   const [messageApi, contextHolder] = message.useMessage();
   const [form] = Form.useForm();
   const [loading, setLoading] = useState(false);
+
+  const navigate = useNavigate();
   const onFinish = (values) => {
     setLoading(true);
     UserApiService.registerUser(values)
@@ -17,8 +20,14 @@ function Register() {
         form.resetFields(); // empty form input fields
         messageApi.open({
           type: "success",
-          content: "User is registered successfully.",
+          content: `User is ${
+            isUserModule ? "created" : "registered"
+          } successfully.`,
         });
+
+        if (isUserModule) {
+          navigate("/users");
+        }
       })
       .catch(console.error)
       .finally(() => {
@@ -28,7 +37,9 @@ function Register() {
   return (
     <div>
       {contextHolder}
-      <Typography.Title level={3}>Register</Typography.Title>
+      <Typography.Title level={3}>
+        {isUserModule ? "Create User" : "Register"}
+      </Typography.Title>
 
       <Form onFinish={onFinish} autoComplete="off" form={form}>
         <Form.Item
@@ -127,7 +138,7 @@ function Register() {
         </Form.Item>
 
         <Button type="primary" htmlType="submit" loading={loading}>
-          Register
+          {isUserModule ? "Created User" : "Register"}
         </Button>
       </Form>
     </div>

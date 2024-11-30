@@ -23,9 +23,15 @@ const loginUser = (payload) => {
 const getUsers = () => {
   return fetch(`${apiDomainName}/users`).then((res) => res.json());
 };
+const deleteUserById = (userId) => {
+  return fetch(`${apiDomainName}/users/${userId}`, {
+    method: "DELETE",
+  }).then((res) => res.json());
+};
 
 export const UserApiService = {
   registerUser,
   loginUser,
   getUsers,
+  deleteUserById,
 };

@@ -108,6 +108,7 @@ function FrontendLayout() {
             style={{
               maxHeight: "80vh",
               overflowY: "auto",
+              paddingTop: "40px",
             }}
           >
             <Outlet />

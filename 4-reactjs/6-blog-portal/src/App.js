@@ -38,6 +38,7 @@ function App() {
           />
 
           <Route path="/users" element={<Users />} />
+          <Route path="/users/create" element={<Register isUserModule />} />
         </Route>
       </Routes>
     </BrowserRouter>
