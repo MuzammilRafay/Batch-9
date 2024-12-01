@@ -3,10 +3,24 @@ import { apiDomainName } from "./apiServiceConstant";
 const registerUser = (payload) => {
   return fetch(`${apiDomainName}/register`, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(payload),
+    // headers: {
+    //   // "Content-Type": "application/json",
+    //   "Content-Type": "multipart/formdata",
+    // },
+    // body: JSON.stringify(payload),
+    body: payload,
+  }).then((res) => res.json());
+};
+
+const updateUser = (userId, payload) => {
+  return fetch(`${apiDomainName}/users/${userId}`, {
+    method: "PUT",
+    // headers: {
+    //   // "Content-Type": "application/json",
+    //   "Content-Type": "multipart/formdata",
+    // },
+    // body: JSON.stringify(payload),
+    body: payload,
   }).then((res) => res.json());
 };
 
@@ -29,9 +43,15 @@ const deleteUserById = (userId) => {
   }).then((res) => res.json());
 };
 
+const getUserById = (userId) => {
+  return fetch(`${apiDomainName}/users/${userId}`).then((res) => res.json());
+};
+
 export const UserApiService = {
   registerUser,
   loginUser,
   getUsers,
   deleteUserById,
+  updateUser,
+  getUserById,
 };

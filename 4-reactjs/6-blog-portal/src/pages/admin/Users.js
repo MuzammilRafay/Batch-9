@@ -97,9 +97,9 @@ function Users() {
         return (
           <Button
             type="primary"
-            // onClick={() => {
-            //   navigate(`/categories/edit/${singleData?.cat_id}`);
-            // }}
+            onClick={() => {
+              navigate(`/users/edit/${singleData?.user_id}`);
+            }}
           >
             Edit
           </Button>

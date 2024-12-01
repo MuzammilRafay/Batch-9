@@ -12,6 +12,7 @@ import Dashboard from "./pages/admin/Dashboard";
 import Categories from "./pages/admin/Categories";
 import CategoryAdd from "./pages/admin/CategoryAdd";
 import Users from "./pages/admin/Users";
+import { AuthUtils } from "./utils/AuthUtils";
 
 function App() {
   return (
@@ -27,19 +28,25 @@ function App() {
         </Route>
 
         {/* ADMIN ROUTES */}
-        <Route element={<AdminLayout />}>
-          <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/categories" element={<Categories />} />
+        {AuthUtils.isUserIsLoggedIn() && (
+          <Route element={<AdminLayout />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/categories" element={<Categories />} />
 
-          <Route path="/categories/create" element={<CategoryAdd />} />
-          <Route
-            path="/categories/edit/:categoryId"
-            element={<CategoryAdd />}
-          />
+            <Route path="/categories/create" element={<CategoryAdd />} />
+            <Route
+              path="/categories/edit/:categoryId"
+              element={<CategoryAdd />}
+            />
 
-          <Route path="/users" element={<Users />} />
-          <Route path="/users/create" element={<Register isUserModule />} />
-        </Route>
+            <Route path="/users" element={<Users />} />
+            <Route path="/users/create" element={<Register isUserModule />} />
+            <Route
+              path="/users/edit/:userId"
+              element={<Register isUserModule />}
+            />
+          </Route>
+        )}
       </Routes>
     </BrowserRouter>
   );
