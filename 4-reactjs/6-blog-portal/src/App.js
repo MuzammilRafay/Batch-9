@@ -13,6 +13,7 @@ import Categories from "./pages/admin/Categories";
 import CategoryAdd from "./pages/admin/CategoryAdd";
 import Users from "./pages/admin/Users";
 import { AuthUtils } from "./utils/AuthUtils";
+import Posts from "./pages/admin/Posts";
 
 function App() {
   return (
@@ -45,6 +46,8 @@ function App() {
               path="/users/edit/:userId"
               element={<Register isUserModule />}
             />
+
+            <Route path="/posts" element={<Posts />} />
           </Route>
         )}
       </Routes>

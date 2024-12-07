@@ -18,8 +18,15 @@ const getPostById = (postId) => {
   return fetch(`${apiDomainName}/posts/${postId}`).then((res) => res.json());
 };
 
+const deletePostById = (postId) => {
+  return fetch(`${apiDomainName}/posts/${postId}`, {
+    method: "DELETE",
+  }).then((res) => res.json());
+};
+
 export const PostApiService = {
   getPostApi,
   getPostById,
-  searchPostApi
+  searchPostApi,
+  deletePostById,
 };

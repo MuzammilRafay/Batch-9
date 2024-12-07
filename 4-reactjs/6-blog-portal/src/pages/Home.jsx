@@ -1,27 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { PostApiService } from "../services/PostApiService";
 import SinglePost from "../components/SinglePost/SinglePost";
+import usePosts from "../hooks/usePosts";
 
 function Home() {
-  const [postData, setPostData] = useState(null);
-  const [loader, setLoader] = useState(false);
-  useEffect(() => {
-    //intial render
-    getPosts();
-  }, []);
-  const getPosts = () => {
-    setLoader(true);
-    PostApiService.getPostApi()
-      .then((data) => {
-        setPostData(data?.results);
-      })
-      .catch((error) => {
-        console.error(error);
-      })
-      .finally(() => {
-        setLoader(false);
-      });
-  };
+  const { loader, postData } = usePosts();
 
   if (loader) {
     return <h2>Loading....</h2>;

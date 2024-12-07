@@ -9,6 +9,9 @@ const convertDateToOurFormat = (date) => {
   s = seconds
   a = am,pm
   */
+  if (!date) {
+    return null;
+  }
   return dayjs(date).format("MMMM D, [at] YYYY h:mm a");
 };
 export const HelperFunction = {

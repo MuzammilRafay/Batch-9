@@ -31,7 +31,7 @@ const items = [
   {
     key: 4,
     icon: <BookOutlined />,
-    label: "Posts",
+    label: <Link to="/posts">Posts</Link>,
   },
   {
     key: 5,
