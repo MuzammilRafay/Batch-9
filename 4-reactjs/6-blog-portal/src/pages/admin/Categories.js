@@ -5,30 +5,13 @@ import { CategoryApiService } from "../../services/categoryService";
 import { HelperFunction } from "../../utils/helperFunction";
 import { useNavigate } from "react-router-dom";
 import CommonAdminListing from "../../components/CommonAdminListing/CommonAdminListing";
+import useCategories from "../../hooks/useCategories";
 
 function Categories() {
   const navigate = useNavigate();
-  const [categories, setCategories] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
 
-  useEffect(() => {
-    //intial load
-    getCategories();
-  }, []);
-
-  const getCategories = () => {
-    setLoading(true);
-
-    CategoryApiService.getCategories()
-      .then((data) => {
-        setCategories(data?.results);
-      })
-      .catch(console.error)
-      .finally(() => {
-        setLoading(false);
-      });
-  };
+  const { categories, loading, setLoading, getCategories } = useCategories();
 
   const categoryDeleteRequestFunction = (singleData) => {
     const categoryId = singleData?.cat_id;

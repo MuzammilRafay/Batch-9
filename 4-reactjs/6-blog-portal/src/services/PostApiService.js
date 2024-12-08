@@ -24,9 +24,17 @@ const deletePostById = (postId) => {
   }).then((res) => res.json());
 };
 
+const createPost = (payload) => {
+  return fetch(`${apiDomainName}/posts`, {
+    method: "POST",
+    body: payload,
+  }).then((res) => res.json());
+};
+
 export const PostApiService = {
   getPostApi,
   getPostById,
   searchPostApi,
   deletePostById,
+  createPost,
 };

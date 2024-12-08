@@ -115,7 +115,6 @@ function Register({ isUserModule = false }) {
   };
 
   const customRequestCallback = (binaryFileObject) => {
-    console.log(binaryFileObject, "binaryFileObject");
     setFileObject(binaryFileObject);
   };
   return (

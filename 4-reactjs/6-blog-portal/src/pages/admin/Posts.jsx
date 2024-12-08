@@ -5,10 +5,12 @@ import { HelperFunction } from "../../utils/helperFunction";
 import usePosts from "../../hooks/usePosts";
 import { ExclamationCircleOutlined } from "@ant-design/icons";
 import { PostApiService } from "../../services/PostApiService";
+import { useNavigate } from "react-router-dom";
 
 function Posts() {
   const { loader, postData, setLoader: setLoading, getPosts } = usePosts();
   const [messageApi, messageHtml] = message.useMessage();
+  const navigate = useNavigate();
 
   const postDeleteRequestFunction = (singleData) => {
     const postId = singleData?.id;
@@ -40,7 +42,16 @@ function Posts() {
       {messageHtml}
 
       <CommonAdminListing
-        btnRender={<Button type="primary">Add Post</Button>}
+        btnRender={
+          <Button
+            type="primary"
+            onClick={() => {
+              navigate("/posts/create");
+            }}
+          >
+            Add Post
+          </Button>
+        }
         tableRender={
           <Table
             loading={loader}

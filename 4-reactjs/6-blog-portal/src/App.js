@@ -14,6 +14,7 @@ import CategoryAdd from "./pages/admin/CategoryAdd";
 import Users from "./pages/admin/Users";
 import { AuthUtils } from "./utils/AuthUtils";
 import Posts from "./pages/admin/Posts";
+import AddEditPost from "./pages/admin/AddEditPost";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
             />
 
             <Route path="/posts" element={<Posts />} />
+            <Route path="/posts/create" element={<AddEditPost />} />
           </Route>
         )}
       </Routes>
