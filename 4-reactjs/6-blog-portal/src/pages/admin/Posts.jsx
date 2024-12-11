@@ -100,9 +100,9 @@ function Posts() {
                   return (
                     <Button
                       type="primary"
-                      //   onClick={() => {
-                      //     navigate(`/users/edit/${singleData?.user_id}`);
-                      //   }}
+                      onClick={() => {
+                        navigate(`/posts/edit/${singleData?.id}`);
+                      }}
                     >
                       Edit
                     </Button>

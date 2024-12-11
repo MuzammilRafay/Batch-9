@@ -31,10 +31,18 @@ const createPost = (payload) => {
   }).then((res) => res.json());
 };
 
+const updatePostById = (postId, payload) => {
+  return fetch(`${apiDomainName}/posts/${postId}`, {
+    method: "PUT",
+    body: payload,
+  }).then((res) => res.json());
+};
+
 export const PostApiService = {
   getPostApi,
   getPostById,
   searchPostApi,
   deletePostById,
   createPost,
+  updatePostById,
 };

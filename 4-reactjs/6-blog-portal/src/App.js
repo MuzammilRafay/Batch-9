@@ -50,6 +50,7 @@ function App() {
 
             <Route path="/posts" element={<Posts />} />
             <Route path="/posts/create" element={<AddEditPost />} />
+            <Route path="/posts/edit/:postId" element={<AddEditPost />} />
           </Route>
         )}
       </Routes>
