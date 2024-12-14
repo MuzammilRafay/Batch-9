@@ -9,3 +9,7 @@ jwt stands for JSON WEB TOKEN
 
 
 user is logged in or not logged we can verify with jwt token
+
+
+  "chart.js": "^4.4.2",
+  "react-chartjs-2": "^5.2.0",
