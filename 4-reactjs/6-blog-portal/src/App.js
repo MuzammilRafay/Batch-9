@@ -15,6 +15,7 @@ import Users from "./pages/admin/Users";
 import { AuthUtils } from "./utils/AuthUtils";
 import Posts from "./pages/admin/Posts";
 import AddEditPost from "./pages/admin/AddEditPost";
+import AdminComments from "./pages/admin/AdminComments";
 
 function App() {
   return (
@@ -51,6 +52,8 @@ function App() {
             <Route path="/posts" element={<Posts />} />
             <Route path="/posts/create" element={<AddEditPost />} />
             <Route path="/posts/edit/:postId" element={<AddEditPost />} />
+
+            <Route path="/comments" element={<AdminComments />} />
           </Route>
         )}
       </Routes>

@@ -30,9 +30,18 @@ const isUserIsLoggedIn = () => {
   return true;
 };
 
+const getUserToken = () => {
+  const token = localStorage.getItem(TOKEN_NAME);
+  if (!token) {
+    return null;
+  }
+  return token;
+};
+
 export const AuthUtils = {
   saveToken,
   removeToken,
   saveUserName,
   isUserIsLoggedIn,
+  getUserToken,
 };

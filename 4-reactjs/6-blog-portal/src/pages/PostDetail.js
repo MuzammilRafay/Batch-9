@@ -2,12 +2,15 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { PostApiService } from "../services/PostApiService";
 import { HelperFunction } from "../utils/helperFunction";
-import useFetch from "../hooks/useFetch";
+import { Button, Input, Form, message } from "antd";
+import { CommentApiService } from "../services/CommentApiService";
 
 function PostDetail() {
   const { postId } = useParams();
   const [singlePostData, setSinglePostData] = useState(null);
   const [loader, setLoader] = useState(false);
+  const [form] = Form.useForm();
+  const [messageApi, messageHtml] = message.useMessage();
 
   useEffect(() => {
     if (postId) {
@@ -29,8 +32,28 @@ function PostDetail() {
     return <h2>Loading.......</h2>;
   }
 
+  const onFinish = (values) => {
+    const payload = {
+      ...values,
+      post_id: postId,
+    };
+
+    setLoader(true);
+    CommentApiService.storeComment(payload)
+      .then((data) => {
+        form.resetFields();
+        messageApi.open({
+          type: "success",
+          content:
+            "Comment is submitted successfully you need to wait for approval the comment.",
+        });
+      })
+      .catch(console.error)
+      .finally(() => setLoader(false));
+  };
   return (
     <>
+      {messageHtml}
       {/* <!-- Blog Post --> */}
 
       {/* <!-- Title --> */}
@@ -74,14 +97,32 @@ function PostDetail() {
       {/* <!-- Comments Form --> */}
       <div className="well">
         <h4>Leave a Comment:</h4>
-        <form role="form">
+        {/* <form role="form" >
           <div className="form-group">
-            <textarea className="form-control" rows="3"></textarea>
+            <textarea className="form-control" rows="3" required></textarea>
           </div>
           <button type="submit" className="btn btn-primary" disabled="disabled">
             Submit
           </button>
-        </form>
+        </form> */}
+
+        <Form onFinish={onFinish} autoComplete="off" form={form}>
+          <Form.Item
+            name="comment_content"
+            rules={[
+              {
+                required: true,
+                message: "Please input your comment",
+              },
+            ]}
+          >
+            <Input.TextArea placeholder="Comment" />
+          </Form.Item>
+
+          <Button type="primary" htmlType="submit" loading={loader}>
+            Submit
+          </Button>
+        </Form>
       </div>
 
       <hr />

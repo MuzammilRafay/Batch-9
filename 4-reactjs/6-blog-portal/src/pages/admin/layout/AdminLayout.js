@@ -36,7 +36,7 @@ const items = [
   {
     key: 5,
     icon: <BookOutlined />,
-    label: <Link to="#">Comments</Link>,
+    label: <Link to="/comments">Comments</Link>,
   },
   {
     key: 6,
